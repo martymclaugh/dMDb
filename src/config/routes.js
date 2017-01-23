@@ -5,6 +5,6 @@ import App from './App';
 
 export default (
   <Route path="/" component={App}>
-
+    
   </Route>
 );
