@@ -7,7 +7,8 @@ class MoviePreview extends Component {
     router: PropTypes.object
   };
   componentWillMount() {
-    this.props.fetchOmdb(this.props.params.id);
+    console.log(this.props)
+    // this.props.fetchOmdb(this.props.params.id);
   }
   render() {
     return (
@@ -15,4 +16,9 @@ class MoviePreview extends Component {
     )
   }
 }
-export default MoviePreview;
+
+function mapStateToProps(state){
+  return { movie: state.movie.movie }
+}
+
+export default connect(mapStateToProps, { fetchOmdb })(MoviePreview);
