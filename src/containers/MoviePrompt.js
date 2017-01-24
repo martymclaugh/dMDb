@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { fetchOmdb } from '../actions/index';
+
+const renderField = ({ input, label, type, placeholder, meta: {touched, error, warning } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={placeholder} type={type}/>
+      {touched && ((error && <div className="text-help"><p style={{color: 'red'}}>{error}</p></div>) || (warning && <div className="text-help"><p style={{color: 'red'}}>{warning}</p></div>))}
+    </div>
+  </div>
+)
 
 class MoviePrompt extends Component {
   render(){
-    const { handleSubmit, fields } = this.props
-    const { title, year } = this.props.fields
+    const maxLength = max => value => value && value.length > max ? `Must be ${max} digits` : undefined
+    const required = value => value ? undefined : 'Required'
+    const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
+    const maxLength4 = maxLength(4)
+
+
     return(
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
         <div className="col-sm-12">
@@ -13,25 +27,23 @@ class MoviePrompt extends Component {
             <h1>Search For A Movie</h1>
             <div className="form-group">
               <label>Movie Title:</label>
-              <input
+              <Field
+                name="title"
                 type="text"
-                className="form-control"
-                {...title}/>
-              <div className="text-help">
-                {title.touched ? title.error : ''}
-              </div>
+                component={renderField}
+                label="Title"
+                placeholder="Batman"
+                validate={[ required ]} />
             </div>
             <div className="form-group">
               <label>Year (optional):</label>
-              <input
-                maxLength="4"
-                placeholder="optional"
+              <Field
+                name="year"
                 type="text"
-                className="form-control"
-                {...year}/>
-                <div className="text-help">
-                  {year.touched ? year.error : ''}
-                </div>
+                component={renderField}
+                label="Year"
+                placeholder="optional"
+                validate={[ number, maxLength4 ]} />
             </div>
             <div className="form-group col-sm-4 col-sm-offset-4">
               <button className="btn btn-block btn-primary" type="submit">Continue</button>
