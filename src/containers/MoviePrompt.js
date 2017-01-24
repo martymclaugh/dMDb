@@ -77,5 +77,5 @@ MoviePrompt = reduxForm({
   fields: ['title', 'year']
 })(MoviePrompt);
 
-// then connect using connect, dispatch to container
+// then connect using react-redux connect, connect dispatch to container
 export default connect(null, mapDispatchToProps)(MoviePrompt)
