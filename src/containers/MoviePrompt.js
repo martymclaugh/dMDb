@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { fetchOmdb } from '../actions/index';
+import { fetchOmdbTitle } from '../actions';
 
 const renderField = ({ input, label, type, placeholder, meta: {touched, error, warning } }) => (
   <div>
@@ -20,9 +20,9 @@ class MoviePrompt extends Component {
   };
 
   onSubmit(props){
-    this.props.fetchOmdb(props).then((data) => {
-      console.log(data, 'DATA')
-      console.log(data.payload.data)
+    this.props.fetchOmdbTitle(props).then((data) => {
+      const { imdbID } = data.payload.data
+      this.context.router.push(`movie/${imdbID}`)
     })
   }
   render(){
@@ -68,7 +68,7 @@ class MoviePrompt extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchOmdb }, dispatch)
+  return bindActionCreators({ fetchOmdbTitle }, dispatch)
 }
 
 // connect using reduxForm the form to the container
@@ -77,5 +77,5 @@ MoviePrompt = reduxForm({
   fields: ['title', 'year']
 })(MoviePrompt);
 
-// then connect using connect, dispatch to container
+// then connect using react-redux connect, connect dispatch to container
 export default connect(null, mapDispatchToProps)(MoviePrompt)
