@@ -20,7 +20,7 @@ class MoviePreview extends Component {
       console.log(movie.Title)
       return (
         <div>
-        <Movie {...this.props}/>
+        <Movie {...this.props.movie}/>
         </div>
       )
     }
