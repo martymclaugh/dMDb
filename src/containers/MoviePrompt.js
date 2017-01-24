@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { fetchOmdb } from '../actions/index';
 
@@ -13,6 +13,15 @@ const renderField = ({ input, label, type, placeholder, meta: {touched, error, w
 )
 
 class MoviePrompt extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
+  onSubmit(props){
+    fetchOmdb(props)
+    // .then(() => { this.context.router.push('/') })
+  }
+
   render(){
     const maxLength = max => value => value && value.length > max ? `Must be ${max} digits` : undefined
     const required = value => value ? undefined : 'Required'
@@ -20,11 +29,10 @@ class MoviePrompt extends Component {
     const maxLength4 = maxLength(4)
     const { handleSubmit } = this.props
 
-
     return(
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
         <div className="col-sm-12">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <h1>Search For A Movie</h1>
             <div className="form-group">
               <label>Movie Title:</label>
