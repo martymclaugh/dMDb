@@ -1,12 +1,11 @@
 import React from 'react';
 
 export default (props) => {
-  const { movie } = props
   const {
     Actors,
     Awards,
     Country,
-    Direct, 
+    Direct,
     Genre,
     Plot,
     Poster,
@@ -15,14 +14,13 @@ export default (props) => {
     Runtime,
     Title,
     Writer
-  } = movie
+  } = props
 
-  console.log(movie)
   console.log(props, 'movie component')
   return (
     <div>
       <div>
-        <h2>{movie.Title}</h2>
+        <h2>{Title}</h2>
       </div>
     </div>
   )
