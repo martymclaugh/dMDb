@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { fetchOmdb } from '../actions/index';
+import { fetchOmdb } from '../actions';
 
 const renderField = ({ input, label, type, placeholder, meta: {touched, error, warning } }) => (
   <div>
