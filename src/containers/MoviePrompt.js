@@ -21,8 +21,8 @@ class MoviePrompt extends Component {
 
   onSubmit(props){
     this.props.fetchOmdb(props).then((data) => {
-      console.log(data, 'DATA')
-      console.log(data.payload.data)
+      const { imdbID } = data.payload.data
+      this.context.router.push(`movie/${imdbID}`)
     })
   }
   render(){
