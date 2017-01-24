@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import { fetchOmdb } from '../actions/index';
 
@@ -7,7 +9,7 @@ const renderField = ({ input, label, type, placeholder, meta: {touched, error, w
     <label>{label}</label>
     <div>
       <input {...input} placeholder={placeholder} type={type}/>
-      {touched && ((error && <div className="text-help"><p style={{color: 'red'}}>{error}</p></div>) || (warning && <div className="text-help"><p style={{color: 'red'}}>{warning}</p></div>))}
+      {touched && ((error && <div className="text-help"><p style={{color: 'red'}}>{error}</p></div>) || (warning && <div className="text-help"><p style={{color: 'orange'}}>{warning}</p></div>))}
     </div>
   </div>
 )
@@ -18,13 +20,14 @@ class MoviePrompt extends Component {
   };
 
   onSubmit(props){
-    fetchOmdb(props)
-    // .then(() => { this.context.router.push('/') })
+    this.props.fetchOmdb(props).then((data) => {
+      console.log(data, 'DATA')
+      console.log(data.payload.data)
+    })
   }
-
   render(){
     const maxLength = max => value => value && value.length > max ? `Must be ${max} digits` : undefined
-    const required = value => value ? undefined : 'Required'
+    const required = value => value ? undefined : 'Enter a Title'
     const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
     const maxLength4 = maxLength(4)
     const { handleSubmit } = this.props
@@ -64,18 +67,15 @@ class MoviePrompt extends Component {
   }
 }
 
-function validate(values){
-  const errors = {};
-  if(!values.title){
-    errors.title = 'Enter a Title';
-  }
-  if(values.year){
-    errors.title = 'Enter a Year'
-  }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchOmdb }, dispatch)
 }
 
-export default reduxForm({
+// connect using reduxForm the form to the container
+MoviePrompt = reduxForm({
   form: 'MoviePromptForm',
-  fields: ['title', 'year'],
-  validate
-}, null, fetchOmdb)(MoviePrompt);
+  fields: ['title', 'year']
+})(MoviePrompt);
+
+// then connect using connect, dispatch to container
+export default connect(null, mapDispatchToProps)(MoviePrompt)
