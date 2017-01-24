@@ -18,12 +18,13 @@ class MoviePrompt extends Component {
     const required = value => value ? undefined : 'Required'
     const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
     const maxLength4 = maxLength(4)
+    const { handleSubmit } = this.props
 
 
     return(
       <div className="jumbotron col-sm-6 col-sm-offset-3 text-center">
         <div className="col-sm-12">
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Search For A Movie</h1>
             <div className="form-group">
               <label>Movie Title:</label>
