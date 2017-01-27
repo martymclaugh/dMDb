@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { reduxForm, Field } from 'redux-form';
 import _ from 'lodash';
 
 import SearchBar from './SearchBar';
-import { fetchTmdbSearch } from '../actions';
+import { fetchTmdbSearch, fetchTmdbId } from '../actions';
 import SearchList from '../components/SearchList';
 import MovieOption from '../components/MovieOption'
 
@@ -29,8 +28,11 @@ class MoviePrompt extends Component {
   }
   showMoviePreview(movie){
     // make api call to grab imdb id,
-    // push router to '/search/:imdb_id'
-    console.log(movie)
+    this.props.fetchTmdbId(movie.id).then(data => {
+      // push router to '/search/:imdb_id'
+      const imdbId = data.payload.data.imdb_id
+      this.context.router.push(`/movie/${imdbId}`)
+    })
   }
   render(){
     const { movies } = this.props.movies
@@ -55,7 +57,5 @@ class MoviePrompt extends Component {
 function mapStateToProps({ movies }){
   return { movies }
 }
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchTmdbSearch }, dispatch);
-}
-export default connect(mapStateToProps, mapDispatchToProps)(MoviePrompt)
+
+export default connect(mapStateToProps, { fetchTmdbSearch, fetchTmdbId })(MoviePrompt)
