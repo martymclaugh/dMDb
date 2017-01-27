@@ -19,10 +19,11 @@
 .movie-option-container > .movie-option-details{
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 5s linear;
+  transition: visibility 0s, opacity 1s linear;
 }
 .movie-option-container:hover > .movie-option-details{
   visibility: visible;
+  transition-delay: 3s;
   opacity: 1;
 }
 .movie-option-details {
