@@ -26,6 +26,8 @@ class MoviePreview extends Component {
       // send to action for youtube search trailer
       this.props.fetchYoutubeTrailer({year, title})
     })
+    // grab imdb ratings
+    this.props.fetchImdbRatings(imdbId)
   }
   render() {
     const { movie } = this.props
@@ -42,16 +44,24 @@ class MoviePreview extends Component {
 }
 
 function mapStateToProps(state){
-  console.log(state, 'CURRENT STATE')
+  const {
+    tmdbMovie,
+    omdbMovie,
+    trailer,
+    ratings
+  } = state.movies
+
   return {
-    tmdbMovie: state.movies.tmdbMovie,
-    omdbMovie: state.movies.omdbMovie,
-    trailer: state.movies.trailer
+    tmdbMovie,
+    omdbMovie,
+    trailer,
+    ratings
   }
 }
 
 export default connect(mapStateToProps, {
    fetchOmdbId,
    fetchTmdbId,
-   fetchYoutubeTrailer
+   fetchYoutubeTrailer,
+   fetchImdbRatings
 })(MoviePreview);
