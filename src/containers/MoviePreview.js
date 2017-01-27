@@ -1,6 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchOmdbId } from '../actions';
+import {
+  fetchTmdbId,
+  fetchOmdbId,
+  fetchYoutubeTrailer,
+  fetchImdbRatings
+} from '../actions';
 import Movie from '../components/Movie';
 
 class MoviePreview extends Component {
@@ -8,19 +13,30 @@ class MoviePreview extends Component {
     router: PropTypes.object
   };
   componentWillMount() {
-    this.props.fetchOmdbId(this.props.params.id);
+    const imdbId = this.props.params.id
+    // grab OMDB data
+    this.props.fetchOmdbId(imdbId)
+    // grab TMDB data
+    this.props.fetchTmdbId(imdbId).then(data => {
+      const response = data.payload.data
+      // grab title and year for youtube trailer search
+      const title = response.title
+      const year = response.release_date.slice(0, 4)
+
+      // send to action for youtube search trailer
+      this.props.fetchYoutubeTrailer({year, title})
+    })
+    // grab imdb ratings
+    this.props.fetchImdbRatings(imdbId)
   }
   render() {
     const { movie } = this.props
-    console.log(movie, 'MOVIE')
     if (!movie){
-      console.log('Loading')
       return <div>Loading...</div>
     } else {
-      console.log(movie.Title)
       return (
         <div>
-        <Movie {...this.props.movie}/>
+          <Movie {...movie}/>
         </div>
       )
     }
@@ -28,7 +44,24 @@ class MoviePreview extends Component {
 }
 
 function mapStateToProps(state){
-  return { movie: state.movie.movie }
+  const {
+    tmdbMovie,
+    omdbMovie,
+    trailer,
+    ratings
+  } = state.movies
+
+  return {
+    tmdbMovie,
+    omdbMovie,
+    trailer,
+    ratings
+  }
 }
 
-export default connect(mapStateToProps, { fetchOmdbId })(MoviePreview);
+export default connect(mapStateToProps, {
+   fetchOmdbId,
+   fetchTmdbId,
+   fetchYoutubeTrailer,
+   fetchImdbRatings
+})(MoviePreview);
