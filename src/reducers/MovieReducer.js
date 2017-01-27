@@ -2,7 +2,8 @@ import {
   FETCH_TMDB_ID,
   FETCH_TMDB,
   FETCH_OMDB_ID,
-  FETCH_YOUTUBE_TRAILER
+  FETCH_YOUTUBE_TRAILER,
+  FETCH_IMDB_RATINGS
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -18,12 +19,13 @@ export const MovieReducer = (state = INITIAL_STATE, action) => {
   case FETCH_TMDB:
     return {...state, movies: action.payload.data.results};
   case FETCH_TMDB_ID:
-    return {...state, tmdbMovie: action.payload.data}
+    return {...state, tmdbMovie: action.payload.data};
   case FETCH_OMDB_ID:
-    return {...state, omdbMovie: action.payload.data}
+    return {...state, omdbMovie: action.payload.data};
   case FETCH_YOUTUBE_TRAILER:
-  console.log(action.payload.data, 'YOUTUBE')
-    return {...state, trailer: action.payload.data }
+    return {...state, trailer: action.payload.data};
+  case FETCH_IMDB_RATINGS:
+    return {...state, ratings: action.payload.data};
   default:
     return state;
   }
