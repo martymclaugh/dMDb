@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchOmdbId } from '../actions';
+import { fetchTmdbSearch } from '../actions';
 import Movie from '../components/Movie';
 
 class MoviePreview extends Component {
@@ -8,19 +8,17 @@ class MoviePreview extends Component {
     router: PropTypes.object
   };
   componentWillMount() {
-    this.props.fetchOmdbId(this.props.params.id);
+    this.props.fetchTmdbSearch(this.props.params.id);
+
   }
   render() {
     const { movie } = this.props
-    console.log(movie, 'MOVIE')
     if (!movie){
-      console.log('Loading')
       return <div>Loading...</div>
     } else {
-      console.log(movie.Title)
       return (
         <div>
-        <Movie {...this.props.movie}/>
+          <Movie {...movie}/>
         </div>
       )
     }
@@ -31,4 +29,4 @@ function mapStateToProps(state){
   return { movie: state.movie.movie }
 }
 
-export default connect(mapStateToProps, { fetchOmdbId })(MoviePreview);
+export default connect(mapStateToProps, { fetchTmdbSearch })(MoviePreview);
