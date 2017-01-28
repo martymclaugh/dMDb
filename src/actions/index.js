@@ -23,10 +23,14 @@ const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&k
 
 export function fetchTmdbSearch(props) {
   const searchTerm = props;
-  const devOptions = {
-    url: `${TMDB_URL_SEARCH}${TMDB_API_KEY}${TMDB_LANGUAGE}&query=${searchTerm}${TMDB_SEARCH_PARAMS}`
-  };
-  const request = axios(devOptions);
+  if(searchTerm.length === 0){
+    return {
+      type: null,
+      payload: null
+    }
+  }
+  const url = `${TMDB_URL_SEARCH}${TMDB_API_KEY}${TMDB_LANGUAGE}&query=${searchTerm}${TMDB_SEARCH_PARAMS}`
+  const request = axios(url);
   return {
     type: FETCH_TMDB,
     payload: request

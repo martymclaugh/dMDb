@@ -6,7 +6,9 @@ import {
   fetchYoutubeTrailer,
   fetchImdbRatings
 } from '../actions';
-import Movie from '../components/Movie';
+import MovieDetails from '../components/MovieDetails';
+import Ratings from '../components/Ratings';
+import Trailer from '../components/Trailer';
 
 class MoviePreview extends Component {
   static contextTypes = {
@@ -30,14 +32,17 @@ class MoviePreview extends Component {
     this.props.fetchImdbRatings(imdbId)
   }
   render() {
-    const { movie } = this.props
-    if (!movie){
+    const { omdbMovie, tmdbMovie, ratings, trailer} = this.props
+    const details = { omdbMovie, tmdbMovie }
+    if (!omdbMovie && !tmdbMovie && !ratings && !trailer){
       return <div>Loading...</div>
     } else {
       return (
         <div>
-          <Movie {...movie}/>
-        </div>
+          <Ratings {...ratings} />
+          <Trailer {...trailer} />
+          <MovieDetails {...details}/>
+       </div>
       )
     }
   }
