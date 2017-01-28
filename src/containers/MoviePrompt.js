@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
 import _ from 'lodash';
 
 import SearchBar from './SearchBar';
