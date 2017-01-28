@@ -14,7 +14,6 @@ const INITIAL_STATE = {
   ratings: []
 };
 export const MovieReducer = (state = INITIAL_STATE, action) => {
-  console.log('ACTION RECEIVED: ', action.type)
   switch(action.type) {
   case FETCH_TMDB:
     return {...state, movies: action.payload.data.results};
