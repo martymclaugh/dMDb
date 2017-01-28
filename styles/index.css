@@ -1,1 +1,16 @@
-@import url('./search_bar.css')
+@import url('./search_bar.css');
+@import url('./video.css');
+@import url('./line_chart.css');
+
+body {
+  background-image: url('../src/images/film_background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.root {
+  min-width: 950px;
+}
