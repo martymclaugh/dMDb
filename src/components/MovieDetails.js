@@ -1,4 +1,6 @@
 import React from 'react';
+import Trailer from './Trailer';
+import Ratings from './Ratings';
 
 export default (props) => {
   console.log(props)
@@ -24,8 +26,18 @@ export default (props) => {
   } = props.tmdbMovie
   return (
     <div>
-      <img src={Poster} alt=""/>
-      <h3>{Title}</h3>
+    <div className="movie-details-top">
+      <div className="movie-details-poster">
+        <img src={Poster} alt=""/>
+      </div>
+      <div className="movie-details-trailer">
+        <h3 className="movie-details-title">{Title} ({Year})</h3>
+        <Trailer {...props.trailer}/>
+        <div className="dMDb-ratings"></div>
+        <div className="imported-ratings"></div>
+      </div>
+    </div>
+      <Ratings {...props.ratings} />
       <p>Actors: {Actors}</p>
       <p>Awards: {Awards}</p>
       <p>Country: {Country}</p>
