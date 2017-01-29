@@ -3,10 +3,12 @@ import {
   FETCH_TMDB,
   FETCH_OMDB_ID,
   FETCH_YOUTUBE_TRAILER,
-  FETCH_IMDB_RATINGS
+  FETCH_IMDB_RATINGS,
+  FETCH_NOW_PLAYING
 } from '../actions';
 
 const INITIAL_STATE = {
+  nowPlaying: [],
   movies: [],
   tmdbMovie: {},
   omdbMovie: {},
@@ -14,7 +16,10 @@ const INITIAL_STATE = {
   ratings: []
 };
 export const MovieReducer = (state = INITIAL_STATE, action) => {
+  console.log('ACTION RECEIVED: ', action.type)
   switch(action.type) {
+  case FETCH_NOW_PLAYING:
+    return {...state, nowPlaying: action.payload.data.results};
   case FETCH_TMDB:
     return {...state, movies: action.payload.data.results};
   case FETCH_TMDB_ID:
