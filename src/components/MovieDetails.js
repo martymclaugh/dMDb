@@ -1,6 +1,6 @@
 import React from 'react';
 import Trailer from './Trailer';
-import Ratings from './Ratings';
+import ImdbDemographics from './ImdbDemographics';
 import RatingsContainer from './RatingsContainer';
 
 export default (props) => {
@@ -49,7 +49,7 @@ export default (props) => {
         <div className="imported-ratings"></div>
       </div>
     </div>
-      <Ratings {...props.ratings} />
+      <ImdbDemographics {...props.ratings} />
       <p>Actors: {Actors}</p>
       <p>Awards: {Awards}</p>
       <p>Country: {Country}</p>
