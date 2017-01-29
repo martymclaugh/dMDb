@@ -9,8 +9,13 @@ export default (props) => {
   const displayItems = data.map((movie) => {
     if (movie.poster_path)
     return (
+      // When homepage loads initially, carousels have no height due to images not loading. Added onload to image to resize window once images have loaded.
       <div className="scroll-image-container" key={movie.id}>
-        <img className="movie-scroll-image" src={`http://image.tmdb.org/t/p/w160${movie.poster_path}`} alt={`${title}`}/>
+        <img
+          className="movie-scroll-image"
+          onLoad={() => {window.dispatchEvent(new Event('resize'));}}
+          src={`http://image.tmdb.org/t/p/w160${movie.poster_path}`}
+          alt={`${title}`}/>
       </div>
     )
   })
