@@ -1,13 +1,9 @@
 import React from 'react';
 import Trailer from './Trailer';
 import Ratings from './Ratings';
-import RottenTomatoesScore from './RottenTomatoesScore';
-import MetaScore from './MetaScore';
-import ImdbScore from './ImdbScore';
-import DmdbScore from './DmdbScore';
+import RatingsContainer from './RatingsContainer';
 
 export default (props) => {
-  console.log(props.omdbMovie)
   const {
     Actors,
     Awards,
@@ -44,18 +40,12 @@ export default (props) => {
       <div className="movie-details-trailer">
         <h3 className="movie-details-title">{Title} ({Year})</h3>
         <Trailer {...props.trailer}/>
-        <div className="dmdb-ratings">
-          <DmdbScore score={{Metascore, tomatoMeter, tomatoUserMeter, imdbRating}}/>
-          <MetaScore score={Metascore}/>
-          <RottenTomatoesScore
-            image={tomatoImage}
-            score={tomatoMeter}
-            type="critics"/>
-          <RottenTomatoesScore
-            score={tomatoUserMeter}
-            type="users"/>
-          <ImdbScore score={imdbRating}/>
-        </div>
+        <RatingsContainer
+          Metascore={Metascore}
+          tomatoMeter={tomatoMeter}
+          tomatoUserMeter={tomatoUserMeter}
+          imdbRating={imdbRating}
+          tomatoImage={tomatoImage}/>
         <div className="imported-ratings"></div>
       </div>
     </div>

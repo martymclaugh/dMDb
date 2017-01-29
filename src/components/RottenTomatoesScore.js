@@ -2,7 +2,6 @@ import React from 'react';
 
 export default (props) => {
   const { image, score, type } = props
-  console.log(parseInt(score), 'SCORE')
   if(type === 'critics' && image === 'fresh'){
     return (
       <div className="score-container">
@@ -23,7 +22,6 @@ export default (props) => {
     )
   }
   if(type === 'users' && parseInt(score) >= 60){
-    console.log('yes')
     return (
       <div className="score-container">
         <img

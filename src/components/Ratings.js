@@ -3,11 +3,10 @@ import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recha
 
 
 export default (props) => {
-  console.log(props)
   const { ratings } = props
   return (
-    <div>
-
+    <div className="ratings-container">
+      <h4 className="movie-details-title">Based on IMDb ratings:</h4>
     <BarChart
       width={600}
       height={300}
@@ -22,8 +21,6 @@ export default (props) => {
       <Bar dataKey="average" fill="gray" />
       <Bar dataKey="females" fill="pink" />
     </BarChart>
-
-
     </div>
   )
 }

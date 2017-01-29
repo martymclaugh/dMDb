@@ -5,7 +5,6 @@ export default (props) => {
     return <div></div>
   }
   const score = parseInt(props.score);
-  console.log(score)
   if (score  >= 61){
     var color = '#66CC33'
   } else if (score <= 60 && score >= 40){
