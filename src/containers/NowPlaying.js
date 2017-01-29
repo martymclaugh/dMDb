@@ -9,12 +9,6 @@ class NowPlaying extends Component {
     this.props.fetchNowPlaying()
   }
   render() {
-    const nowPlayingItems = this.props.nowPlaying.map((movie) => {
-      return (
-        <MovieOption
-        {...movie}/>
-      )
-    })
     return (
       <div className="now-playing-container">
         <MovieScrollList title="Now Playing" data={this.props.nowPlaying}/>
