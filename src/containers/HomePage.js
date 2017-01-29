@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NavBar from '../containers/NavBar';
 import NowPlaying from '../containers/NowPlaying';
 import Popular from '../containers/Popular';
@@ -7,7 +8,7 @@ import Upcoming from '../containers/Upcoming';
 
 
 
-export default class HomePage extends Component {
+class HomePage extends Component {
   render(){
     return(
       <div className="jumbotron">
@@ -20,3 +21,9 @@ export default class HomePage extends Component {
     )
   }
 }
+
+function mapStateToProps(state){
+  return {state}
+}
+
+export default connect(mapStateToProps, null)(HomePage);
