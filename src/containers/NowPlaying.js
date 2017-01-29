@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchNowPlaying } from '../actions';
-import MovieOption from '../components/MovieOption'
 import MovieScrollList from '../components/MovieScrollList.js';
 
 class NowPlaying extends Component {
