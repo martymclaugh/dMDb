@@ -1,3 +1,6 @@
 .recharts-legend-wrapper {
   margin: -20px;
 }
+.recharts-legend-item-text {
+  color: white;
+}

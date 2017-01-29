@@ -37,7 +37,6 @@ class NavBar extends Component {
     const { movies } = this.props.movies
     return(
       <div className="text-center">
-        <div className="col-sm-12">
         <div className="search-bar">
           <input
             className="search-input"
@@ -46,7 +45,6 @@ class NavBar extends Component {
             <SearchList
               onSelectMovie={selectedMovie => this.showMoviePreview(selectedMovie)}
               movies={movies}/>
-        </div>
         </div>
       </div>
     )

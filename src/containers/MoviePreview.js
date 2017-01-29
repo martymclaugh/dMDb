@@ -8,7 +8,6 @@ import {
 } from '../actions';
 import MovieDetails from '../components/MovieDetails';
 import Ratings from '../components/Ratings';
-import Trailer from '../components/Trailer';
 
 class MoviePreview extends Component {
   static contextTypes = {
@@ -38,10 +37,11 @@ class MoviePreview extends Component {
       return <div>Loading...</div>
     } else {
       return (
-        <div>
-          <Ratings {...ratings} />
-          <Trailer {...trailer} />
-          <MovieDetails {...details}/>
+        <div className="jumbotron">
+          <MovieDetails
+          trailer={trailer}
+          ratings={ratings}
+          {...details}/>
        </div>
       )
     }

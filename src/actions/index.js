@@ -85,7 +85,7 @@ export function fetchTmdbId(id){
   }
 }
 export function fetchOmdbId(id){
-  const url = `${OMDB_URL}${id}${FULL_PLOT}`;
+  const url = `${OMDB_URL}${id}${FULL_PLOT}&tomatoes=true`;
   const request = axios(url);
   return {
     type: FETCH_OMDB_ID,
