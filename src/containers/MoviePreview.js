@@ -4,9 +4,11 @@ import {
   fetchTmdbId,
   fetchOmdbId,
   fetchYoutubeTrailer,
-  fetchImdbRatings
+  fetchImdbRatings,
+  fetchSimilar
 } from '../actions';
 import MovieDetails from '../components/MovieDetails';
+import Similar from './Similar';
 
 class MoviePreview extends Component {
   static contextTypes = {
@@ -25,6 +27,7 @@ class MoviePreview extends Component {
 
       // send to action for youtube search trailer
       this.props.fetchYoutubeTrailer({year, title})
+      this.props.fetchSimilar(response.id)
     })
     // grab imdb ratings
     this.props.fetchImdbRatings(imdbId)
@@ -32,7 +35,7 @@ class MoviePreview extends Component {
   render() {
     const { omdbMovie, tmdbMovie, ratings, trailer} = this.props
     const details = { omdbMovie, tmdbMovie }
-    if (!omdbMovie && !tmdbMovie && !ratings && !trailer){
+    if (!omdbMovie && !tmdbMovie.id && !ratings && !trailer){
       return <div>Loading...</div>
     } else {
       return (
@@ -41,6 +44,7 @@ class MoviePreview extends Component {
           trailer={trailer}
           ratings={ratings}
           {...details}/>
+          <Similar id={tmdbMovie.id}/>
        </div>
       )
     }
@@ -67,5 +71,6 @@ export default connect(mapStateToProps, {
    fetchOmdbId,
    fetchTmdbId,
    fetchYoutubeTrailer,
-   fetchImdbRatings
+   fetchImdbRatings,
+   fetchSimilar
 })(MoviePreview);

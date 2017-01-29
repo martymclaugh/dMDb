@@ -26,9 +26,9 @@ export default (props) => {
   } = props.omdbMovie
   const {
     budget,
-    revenue,
-    tagline
+    revenue
   } = props.tmdbMovie
+  console.log(props.tmdbMovie.id)
   return (
     <div>
       <div className="search-bar">
@@ -72,7 +72,6 @@ export default (props) => {
           <p className="details-text">Revenue: {revenue}</p>
         </div>
       </div>
-      <p>{tagline}</p>
     </div>
   )
 }
