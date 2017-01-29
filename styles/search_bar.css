@@ -51,8 +51,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
 }
 
 .search-input {
   width: 500px;
+}
+
+.search-results-container {
+  position: absolute;
+  margin-top: 30px;
+  z-index: 3;
 }

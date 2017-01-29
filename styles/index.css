@@ -1,6 +1,8 @@
 @import url('./search_bar.css');
 @import url('./video.css');
 @import url('./line_chart.css');
+@import url('./home_page.css');
+@import url('./video_scroll_list.css');
 
 body {
   background-image: url('../src/images/film_background.jpg');

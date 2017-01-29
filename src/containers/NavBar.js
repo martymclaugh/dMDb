@@ -8,7 +8,7 @@ import SearchList from '../components/SearchList';
 import MovieOption from '../components/MovieOption'
 
 
-class MoviePrompt extends Component {
+class NavBar extends Component {
   constructor(props){
     super(props);
     this.state = { term: ''};
@@ -36,7 +36,7 @@ class MoviePrompt extends Component {
   render(){
     const { movies } = this.props.movies
     return(
-      <div className="jumbotron text-center">
+      <div className="text-center">
         <div className="col-sm-12">
         <div className="search-bar">
           <input
@@ -57,4 +57,4 @@ function mapStateToProps({ movies }){
   return { movies }
 }
 
-export default connect(mapStateToProps, { fetchTmdbSearch, fetchTmdbId })(MoviePrompt)
+export default connect(mapStateToProps, { fetchTmdbSearch, fetchTmdbId })(NavBar)
