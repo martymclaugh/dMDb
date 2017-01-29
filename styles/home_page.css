@@ -1,0 +1,7 @@
+.jumbotron {
+  background-color: white;
+  min-width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

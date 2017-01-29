@@ -1,0 +1,58 @@
+.slider-decorator-2 {
+  display: none;
+}
+
+.slider-decorator-3 button{
+  height: 240px;
+}
+
+.movie-scroll-image {
+  display: flex;
+}
+
+.slider-slide:last-child {
+  display: none;
+}
+
+.movie-scroll-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-scroll-image {
+  width: 80px !important;
+  z-index: 2;
+  height: 120px;
+  align-self: center;
+  transition: 0.5s transform;
+  transform-origin: center;
+}
+.movie-scroll-image:hover {
+  transition-delay: 0.4s;
+  transform: scale(2);
+}
+
+.movie-scroll-image ~ .movie-scroll-image {
+   transform: translate3d(80px, 0, 0);
+}
+.scroll-image-container {
+  display: flex;
+  align-self: center;
+  height: 250px;
+  margin: 2%;
+}
+.now-playing-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.slider {
+  margin-left: 50px;
+}
+
+.movie-scroll-title {
+  display: flex;
+  align-self: center;
+  margin-top: 50px;
+}

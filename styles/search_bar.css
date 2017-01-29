@@ -56,3 +56,8 @@
 .search-input {
   width: 500px;
 }
+
+.search-results-container {
+  position: absolute;
+  margin-top: 30px;
+}
