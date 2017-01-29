@@ -1,0 +1,47 @@
+.rotten-tomatoes-critics-fresh {
+  height: 50px;
+}
+.score-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.score {
+  margin-left: 5px;
+  margin-top: 5px;
+  color: white;
+  font-family: sans-serif;
+}
+.dmdb-ratings {
+  margin-top: 15px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.metascore-box {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.metascore {
+  position: absolute;
+  margin: 7px 0 0 10px;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  font-family: sans-serif;
+}
+
+.imdb-score {
+  color: white;
+  font-family: sans-serif;
+}
+
+.dmdb-score {
+  color: white;
+  margin-left: 10px;
+  font-family: sans-serif;
+}
