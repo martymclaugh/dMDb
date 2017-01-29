@@ -8,7 +8,7 @@ class MovieGreeting extends Component {
         <h1>movieD</h1>
         <p className="lead">Get the rating demographics from iMDB</p>
         <div className="form-group col-sm-4 col-sm-offset-4">
-          <Link to="/search" className="btn btn-block btn-primary">
+          <Link to="/home" className="btn btn-block btn-primary">
               Continue
           </Link>
         </div>
