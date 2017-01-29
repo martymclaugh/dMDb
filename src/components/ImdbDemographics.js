@@ -17,9 +17,9 @@ export default (props) => {
       <YAxis/>
       <CartesianGrid strokeDasharray="3 3"/>
       <Tooltip/>
-      <Bar dataKey="males" fill="blue" />
-      <Bar dataKey="average" fill="gray" />
-      <Bar dataKey="females" fill="pink" />
+      <Bar dataKey="males" fill="#128dea" />
+      <Bar dataKey="average" fill="#0D5746" />
+      <Bar dataKey="females" fill="#ff68ef" />
     </BarChart>
     </div>
   )

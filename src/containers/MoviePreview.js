@@ -7,7 +7,6 @@ import {
   fetchImdbRatings
 } from '../actions';
 import MovieDetails from '../components/MovieDetails';
-import Ratings from '../components/Ratings';
 
 class MoviePreview extends Component {
   static contextTypes = {

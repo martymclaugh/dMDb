@@ -38,7 +38,7 @@ export default (props) => {
         <img src={Poster} alt=""/>
       </div>
       <div className="movie-details-trailer">
-        <h3 className="movie-details-title">{Title} ({Year})</h3>
+        <h3 className="movie-details-title">{Title} ({Year}) <span className="rated">{Rated}</span></h3>
         <Trailer {...props.trailer}/>
         <RatingsContainer
           Metascore={Metascore}
@@ -49,20 +49,29 @@ export default (props) => {
         <div className="imported-ratings"></div>
       </div>
     </div>
-      <ImdbDemographics {...props.ratings} />
-      <p>Actors: {Actors}</p>
-      <p>Awards: {Awards}</p>
-      <p>Country: {Country}</p>
-      <p>Director: {Director}</p>
-      <p>Genre: {Genre}</p>
-      <p>Language: {Language}</p>
-      <p>Plot: {Plot}</p>
-      <p>Rated: {Rated}</p>
-      <p>Runtime: {Runtime}</p>
-      <p>Writers: {Writer}</p>
-      <p>Year: {Year}</p>
-      <p>Budget: {budget}</p>
-      <p>Revenue: {revenue}</p>
+      <div className="demographics-plot-container">
+        <div className="movie-details-trailer">
+          <p className="plot-text">Genre: {Genre}</p>
+          <p className="plot-text">{Plot}</p>
+        </div>
+        <ImdbDemographics {...props.ratings} />
+      </div>
+      <div className="details-row">
+        <div className="details-col">
+          <p className="details-text">Actors: {Actors}</p>
+          <p className="details-text">Director: {Director}</p>
+          <p className="details-text">Writers: {Writer}</p>
+          <p className="details-text">Awards: {Awards}</p>
+        </div>
+        <div className="details-col border-left-white">
+          <p className="details-text">Country: {Country}</p>
+          <p className="details-text">Language: {Language}</p>
+          <p className="details-text">Runtime: {Runtime}</p>
+          <p className="details-text">Year: {Year}</p>
+          <p className="details-text">Budget: {budget}</p>
+          <p className="details-text">Revenue: {revenue}</p>
+        </div>
+      </div>
       <p>{tagline}</p>
     </div>
   )
