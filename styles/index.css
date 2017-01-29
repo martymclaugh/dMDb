@@ -3,6 +3,7 @@
 @import url('./line_chart.css');
 @import url('./home_page.css');
 @import url('./video_scroll_list.css');
+@import url('./movie_details.css');
 
 body {
   background-image: url('../src/images/film_background.jpg');
@@ -14,5 +15,6 @@ body {
 }
 
 .root {
-  min-width: 950px;
+  min-width: 1000px;
+  max-width: 1050px;
 }
