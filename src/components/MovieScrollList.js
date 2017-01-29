@@ -16,7 +16,7 @@ export default (props) => {
   })
   const options = {
     autoplay: false,
-    slidesToShow: 8,
+    slidesToShow: 7,
     width: '950px',
     height: '240px',
     wrapAround: true
