@@ -1,9 +1,8 @@
 .slider-decorator-2 {
   display: none;
 }
-
-.slider-decorator-3 button{
-  height: 240px;
+.slider-decorator-0 .slider-decorator-1 {
+  position: absolute;
 }
 
 .movie-scroll-image {
@@ -21,6 +20,7 @@
 
 .movie-scroll-image {
   width: 80px !important;
+  border: 1px solid black;
   z-index: 2;
   height: 120px;
   align-self: center;
@@ -28,6 +28,7 @@
   transform-origin: center;
 }
 .movie-scroll-image:hover {
+  cursor: pointer;
   transition-delay: 0.4s;
   transform: scale(2);
 }
@@ -54,5 +55,5 @@
 .movie-scroll-title {
   display: flex;
   align-self: center;
-  margin-top: 50px;
+  margin-bottom: -50px;
 }

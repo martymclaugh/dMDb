@@ -2,6 +2,7 @@
   background-color: white;
   min-width: inherit;
   display: flex;
+  height: auto;
   flex-direction: column;
   align-items: center;
 }
