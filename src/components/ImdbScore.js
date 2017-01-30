@@ -5,8 +5,9 @@ export default (props) => {
   return (
     <div className="score-container">
       <img
-      className="rotten-tomatoes-critics-fresh"
-      src={('https://i.imgur.com/cMBThxN.png')} />
+        role="presentation"
+        className="rotten-tomatoes-critics-fresh"
+        src={('https://i.imgur.com/cMBThxN.png')} />
       <span className="imdb-score">{score}</span>
     </div>
   )

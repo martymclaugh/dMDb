@@ -16,8 +16,9 @@ export default (props) => {
   return(
     <div className="score-container">
       <img
-      className="rotten-tomatoes-critics-fresh"
-      src={('https://i.imgur.com/hRpgbSr.png')} />
+        role="presentation"
+        className="rotten-tomatoes-critics-fresh"
+        src={('https://i.imgur.com/hRpgbSr.png')} />
       <span className="dmdb-score">{score}</span>
     </div>
   )

@@ -6,8 +6,9 @@ export default (props) => {
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('https://i.imgur.com/8c7MUze.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/8c7MUze.png')} />
         <span className="score">{score}%</span>
       </div>
     )
@@ -15,8 +16,9 @@ export default (props) => {
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('https://i.imgur.com/7cljTie.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/7cljTie.png')} />
         <span className="score">{score}%</span>
       </div>
     )
@@ -25,8 +27,9 @@ export default (props) => {
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('https://i.imgur.com/UMqIkLq.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/UMqIkLq.png')} />
         <span className="score">{score}%</span>
       </div>
     )
@@ -34,8 +37,9 @@ export default (props) => {
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('https://i.imgur.com/E4yllHl.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/E4yllHl.png')} />
         <span className="score">{score}%</span>
       </div>
     )

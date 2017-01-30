@@ -10,6 +10,8 @@ export default (props) => {
           key={movie.id}
           {...movie}/>
       )
+    } else {
+      return <span key={movie.id}></span>
     }
   })
   return(

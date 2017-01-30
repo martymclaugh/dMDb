@@ -2,11 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import SearchBar from './SearchBar';
 import { fetchTmdbSearch, fetchTmdbId } from '../actions';
 import SearchList from '../components/SearchList';
-import MovieOption from '../components/MovieOption'
-
 
 class NavBar extends Component {
   constructor(props){
