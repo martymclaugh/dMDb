@@ -21,7 +21,7 @@ class NavBar extends Component {
     this.props.fetchTmdbSearch(term)
   }
   onInputChange(term) {
-    const movieSearch = _.debounce((term) => {this.movieSearch(term) }, 200)
+    const movieSearch = _.debounce((term) => {this.movieSearch(term) }, 300)
     this.setState({term});
     movieSearch(term);
   }
@@ -36,17 +36,19 @@ class NavBar extends Component {
   render(){
     const { movies } = this.props.movies
     return(
-      <div className="text-center">
         <div className="search-bar">
-          <input
-            className="search-input"
-            value={this.state.term}
-            onChange={event => this.onInputChange(event.target.value)}/>
+          <img className="dmdb-logo" src={('../src/images/dmdb-logo.png')} alt=""/>
+          <div className="search-bar-col">
+            <h4 className="search-header">Enter Any Movie: </h4>
+            <input
+              className="search-input"
+              value={this.state.term}
+              onChange={event => this.onInputChange(event.target.value)}/>
             <SearchList
               onSelectMovie={selectedMovie => this.showMoviePreview(selectedMovie)}
               movies={movies}/>
+          </div>
         </div>
-      </div>
     )
   }
 }
