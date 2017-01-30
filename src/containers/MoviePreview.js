@@ -48,10 +48,10 @@ class MoviePreview extends Component {
             <img onClick={() => this.goToHome()} className="dmdb-logo" src={('../src/images/dmdb-logo.png')} alt=""/>
           </div>
           <MovieDetails
-          trailer={trailer}
-          ratings={ratings}
-          router={router}
-          {...details}/>
+            trailer={trailer}
+            ratings={ratings}
+            router={router}
+            {...details}/>
           <Similar id={tmdbMovie.id}/>
        </div>
       )
