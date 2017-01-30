@@ -7,6 +7,7 @@ import reducers from './reducers';
 import routes from './config/routes';
 import promise from 'redux-promise';
 import App from './App';
+import './index.css';
 
 const createStoreWithMiddleware = applyMiddleware(
   promise
@@ -16,4 +17,4 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router onUpdate={() => window.scrollTo(0, 0)} history={hashHistory} routes={routes} />
   </Provider>
-  , document.querySelector('.root'));
+  , document.querySelector('#root'));

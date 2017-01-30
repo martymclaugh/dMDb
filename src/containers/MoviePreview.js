@@ -45,7 +45,7 @@ class MoviePreview extends Component {
       return (
         <div className="jumbotron">
           <div className="search-bar">
-            <img onClick={() => this.goToHome()} className="dmdb-logo" src={('../src/images/dmdb-logo.png')} alt=""/>
+            <img onClick={() => this.goToHome()} className="dmdb-logo" src={('http://i.imgur.com/2zBPGgc.png')} alt="dmdb"/>
           </div>
           <MovieDetails
             trailer={trailer}

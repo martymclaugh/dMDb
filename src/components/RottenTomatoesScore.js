@@ -7,7 +7,7 @@ export default (props) => {
       <div className="score-container">
         <img
         className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/tomato.png')} />
+        src={('http://i.imgur.com/8c7MUze.png')} />
         <span className="score">{score}%</span>
       </div>
     )
@@ -16,7 +16,7 @@ export default (props) => {
       <div className="score-container">
         <img
         className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/rotten.png')} />
+        src={('http://i.imgur.com/7cljTie.png')} />
         <span className="score">{score}%</span>
       </div>
     )
@@ -26,7 +26,7 @@ export default (props) => {
       <div className="score-container">
         <img
         className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/popcorn.png')} />
+        src={('http://i.imgur.com/UMqIkLq.png')} />
         <span className="score">{score}%</span>
       </div>
     )
@@ -35,7 +35,7 @@ export default (props) => {
       <div className="score-container">
         <img
         className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/spilt_popcorn.png')} />
+        src={('http://i.imgur.com/E4yllHl.png')} />
         <span className="score">{score}%</span>
       </div>
     )

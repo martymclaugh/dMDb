@@ -32,7 +32,7 @@ export default (props) => {
     <div>
     <div className="movie-details-top">
       <div className="movie-details-poster">
-        <img src={Poster} alt=""/>
+        <img src={Poster} alt="dmdb"/>
       </div>
       <div className="movie-details-trailer">
         <h3 className="movie-details-title">{Title} ({Year}) <span className="rated">{Rated}</span></h3>

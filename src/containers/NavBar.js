@@ -37,7 +37,7 @@ class NavBar extends Component {
     const { movies } = this.props.movies
     return(
         <div className="search-bar">
-          <img className="dmdb-logo" src={('../src/images/dmdb-logo.png')} alt=""/>
+          <img className="dmdb-logo" src={('http://i.imgur.com/2zBPGgc.png')} alt="dmdb"/>
           <div className="search-bar-col">
             <h4 className="search-header">Enter Any Movie: </h4>
             <input

@@ -17,7 +17,7 @@ export default (props) => {
     <div className="score-container">
       <img
       className="rotten-tomatoes-critics-fresh"
-      src={('../src/images/dmdb.png')} />
+      src={('http://i.imgur.com/hRpgbSr.png')} />
       <span className="dmdb-score">{score}</span>
     </div>
   )
