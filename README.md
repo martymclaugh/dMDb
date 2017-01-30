@@ -13,18 +13,18 @@ A React/Redux Web application to show movie demographics from iMDB along with ra
 ##Screenshots
 
 ### CSS Transitions for seamless and powerful UX.
-<img align="center" src="http://i.imgur.com/sFMz6yV.png" width="750px">
+<img align="center" src="http://i.imgur.com/sFMz6yV.png" width="900px">
 
 ### Smart search loads while typing.
-<img align="center" src="http://i.imgur.com/tD5749o.png" width="750px">
+<img align="center" src="http://i.imgur.com/tD5749o.png" width="900px">
 
 ### Display movie trailer along with Ratings.
-<img align="center" src="http://i.imgur.com/J71syyh.png" width="750px">
+<img align="center" src="http://i.imgur.com/J71syyh.png" width="900px">
 
 ### IMDb demographics displayed in an interactive HTML based JavaScript chart.
-<img align="center" src="http://i.imgur.com/bWE06Mx.png" width="750px">
+<img align="center" src="http://i.imgur.com/bWE06Mx.png" width="900px">
 
-<img align="center" src="http://i.imgur.com/UDLZN1Y.png" width="300px">
+<img align="center" src="http://i.imgur.com/UDLZN1Y.png" width="600px">
 
 ### Below movie details users can view and link to similar movies.
-<img align="center" src="http://i.imgur.com/2zBPGgc.png" width="750px">
+<img align="center" src="http://i.imgur.com/OnGiIdp.pngg" width="900px">
