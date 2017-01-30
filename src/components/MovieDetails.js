@@ -28,11 +28,8 @@ export default (props) => {
     budget,
     revenue
   } = props.tmdbMovie
-  console.log(props.tmdbMovie.id)
   return (
     <div>
-      <div className="search-bar">
-      </div>
     <div className="movie-details-top">
       <div className="movie-details-poster">
         <img src={Poster} alt=""/>
