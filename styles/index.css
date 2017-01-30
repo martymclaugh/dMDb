@@ -19,4 +19,13 @@ body {
 .root {
   min-width: 950px;
   max-width: 950px;
+  height: 100%;
+}
+
+.footer {
+  background-color: #222222;
+  width: 1000px;
+  height: 80px;
+  border-top: 3px solid #0D5746;
+  bottom: 0;
 }

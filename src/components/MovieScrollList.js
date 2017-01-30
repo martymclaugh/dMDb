@@ -1,10 +1,10 @@
 import React from 'react';
 import Carousel from 'nuka-carousel';
-
+import Loading from 'react-loading';
 export default (props) => {
   const { data, title } = props
   if (!data){
-    return <div>loading!!!!</div>
+    return <Loading type='bars' color='#0D5746'/>
   }
   const displayItems = data.map((movie) => {
     if (movie.poster_path){

@@ -9,6 +9,8 @@ import {
 } from '../actions';
 import MovieDetails from '../components/MovieDetails';
 import Similar from './Similar';
+import Footer from '../components/Footer';
+import Loading from 'react-loading';
 
 class MoviePreview extends Component {
   static contextTypes = {
@@ -40,7 +42,7 @@ class MoviePreview extends Component {
     const { router } = this.context
     const details = { omdbMovie, tmdbMovie }
     if (!omdbMovie && !tmdbMovie.id && !ratings && !trailer){
-      return <div>Loading...</div>
+      return <Loading type='bars' color='#0D5746'/>
     } else {
       return (
         <div className="jumbotron">
@@ -53,6 +55,7 @@ class MoviePreview extends Component {
             router={router}
             {...details}/>
           <Similar id={tmdbMovie.id}/>
+          <Footer />
        </div>
       )
     }
