@@ -21,7 +21,7 @@ export default (props) => {
       </div>
     )
   }
-  if(type === 'users' && parseInt(score) >= 60){
+  if(type === 'users' && parseInt(score, 10) >= 60){
     return (
       <div className="score-container">
         <img
@@ -30,7 +30,7 @@ export default (props) => {
         <span className="score">{score}%</span>
       </div>
     )
-  } else if (type === 'users' && parseInt(score) < 60){
+  } else if (type === 'users' && parseInt(score, 10) < 60){
     return (
       <div className="score-container">
         <img
