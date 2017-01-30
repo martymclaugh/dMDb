@@ -33,7 +33,7 @@ class MoviePreview extends Component {
     this.props.fetchImdbRatings(imdbId)
   }
   goToHome(){
-    this.context.router.push('/home')
+    this.context.router.push('/')
   }
   render() {
     const { omdbMovie, tmdbMovie, ratings, trailer} = this.props
