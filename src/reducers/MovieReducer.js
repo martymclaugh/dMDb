@@ -12,6 +12,7 @@ import {
 } from '../actions';
 
 const INITIAL_STATE = {
+  selectedMovie: {},
   nowPlaying: [],
   popular: [],
   upcoming: [],
