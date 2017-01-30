@@ -6,8 +6,9 @@ export default (props) => {
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/tomato.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/8c7MUze.png')} />
         <span className="score">{score}%</span>
       </div>
     )
@@ -15,27 +16,30 @@ export default (props) => {
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/rotten.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/7cljTie.png')} />
         <span className="score">{score}%</span>
       </div>
     )
   }
-  if(type === 'users' && parseInt(score) >= 60){
+  if(type === 'users' && parseInt(score, 10) >= 60){
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/popcorn.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/UMqIkLq.png')} />
         <span className="score">{score}%</span>
       </div>
     )
-  } else if (type === 'users' && parseInt(score) < 60){
+  } else if (type === 'users' && parseInt(score, 10) < 60){
     return (
       <div className="score-container">
         <img
-        className="rotten-tomatoes-critics-fresh"
-        src={('../src/images/spilt_popcorn.png')} />
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/E4yllHl.png')} />
         <span className="score">{score}%</span>
       </div>
     )

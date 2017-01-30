@@ -2,11 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import SearchBar from './SearchBar';
 import { fetchTmdbSearch, fetchTmdbId } from '../actions';
 import SearchList from '../components/SearchList';
-import MovieOption from '../components/MovieOption'
-
 
 class NavBar extends Component {
   constructor(props){
@@ -37,7 +34,7 @@ class NavBar extends Component {
     const { movies } = this.props.movies
     return(
         <div className="search-bar">
-          <img className="dmdb-logo" src={('../src/images/dmdb-logo.png')} alt=""/>
+          <img className="dmdb-logo" src={('https://i.imgur.com/2zBPGgc.png')} alt="dmdb"/>
           <div className="search-bar-col">
             <h4 className="search-header">Enter Any Movie: </h4>
             <input

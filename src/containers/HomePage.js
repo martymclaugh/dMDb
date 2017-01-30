@@ -12,11 +12,14 @@ class HomePage extends Component {
   render(){
     return(
       <div className="jumbotron">
-        <NavBar/>
-        <NowPlaying />
-        <Popular />
-        <TopRated />
-        <Upcoming />
+        <div className="homepage-container">
+
+          <NavBar/>
+          <NowPlaying />
+          <Popular />
+          <TopRated />
+          <Upcoming />
+        </div>
       </div>
     )
   }

@@ -7,15 +7,16 @@
 @import url('./scores.css');
 
 body {
-  background-image: url('../src/images/film_background.jpg');
+  background-image: url('https://i.imgur.com/foAB5DF.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .root {
-  min-width: 1000px;
-  max-width: 1050px;
+  min-width: 950px;
+  max-width: 950px;
 }

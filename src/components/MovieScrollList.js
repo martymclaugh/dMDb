@@ -7,20 +7,23 @@ export default (props) => {
     return <div>loading!!!!</div>
   }
   const displayItems = data.map((movie) => {
-    if (movie.poster_path)
-    return (
-      // When homepage loads initially, carousels have no height due to images not loading. Added onload to image to resize window once images have loaded.
-      <div
-        onClick={() => {props.onSelectPoster(movie)}}
-        className="scroll-image-container"
-        key={movie.id}>
+    if (movie.poster_path){
+      return (
+        // When homepage loads initially, carousels have no height due to images not loading. Added onload to image to resize window once images have loaded.
+        <div
+          onClick={() => {props.onSelectPoster(movie)}}
+          className="scroll-image-container"
+          key={movie.id}>
         <img
           className="movie-scroll-image"
           onLoad={() => {window.dispatchEvent(new Event('resize'));}}
-          src={`http://image.tmdb.org/t/p/w160${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w160${movie.poster_path}`}
           alt={`${title}`}/>
-      </div>
-    )
+        </div>
+      )
+    } else {
+      return <span key={movie.id}></span>
+    }
   })
   const options = {
     autoplay: false,
