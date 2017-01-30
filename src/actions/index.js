@@ -15,7 +15,7 @@ const YOUTUBE_API_KEY = 'AIzaSyBWyyHS4PatbpxSZAuN3HBfQH1OQLnaj0Y';
 const TMDB_API_KEY = '25a41e10fc0fc533a91edbb4d876705d';
 const IMDB_SCRAPE_URL = 'https://informationextractor.herokuapp.com/scrape/';
 const OMDB_URL ='http://www.omdbapi.com/?i='; // i= for id || + t= for title
-const FULL_PLOT = "&plot=full&r=json";
+const FULL_PLOT = "&plot=short&r=json";
 const TMDB_URL_SEARCH = 'https://api.themoviedb.org/3/search/multi?api_key=';
 const TMDB_ID_SEARCH = 'https://api.themoviedb.org/3/movie/';
 const TMDB_LANGUAGE = '&language=en-US';
