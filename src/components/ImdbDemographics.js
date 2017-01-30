@@ -1,9 +1,17 @@
 import React from 'react';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import Loading from 'react-loading';
 
 
 export default (props) => {
   const { ratings } = props
+  if(!ratings){
+    return (
+      <div className="ratings-container">
+        <Loading type='bars' color='#0D5746'/>
+      </div>
+    )
+  }
   return (
     <div className="ratings-container">
       <h4 className="movie-details-title">Based on IMDb ratings:</h4>

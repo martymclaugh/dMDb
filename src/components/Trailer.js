@@ -1,8 +1,9 @@
 import React from 'react';
+import Loading from 'react-loading';
 
 export default (props) => {
   if(!props.items){
-    return <div> loading... </div>
+    return <Loading type='bars' color='#0D5746'/>
   }
   const video = props.items[0]
   const url = `https://www.youtube.com/embed/${video.id.videoId}`
