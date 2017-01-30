@@ -32,17 +32,25 @@ class MoviePreview extends Component {
     // grab imdb ratings
     this.props.fetchImdbRatings(imdbId)
   }
+  goToHome(){
+    this.context.router.push('/home')
+  }
   render() {
     const { omdbMovie, tmdbMovie, ratings, trailer} = this.props
+    const { router } = this.context
     const details = { omdbMovie, tmdbMovie }
     if (!omdbMovie && !tmdbMovie.id && !ratings && !trailer){
       return <div>Loading...</div>
     } else {
       return (
         <div className="jumbotron">
+          <div className="search-bar">
+            <img onClick={() => this.goToHome()} className="dmdb-logo" src={('../src/images/dmdb-logo.png')} alt=""/>
+          </div>
           <MovieDetails
           trailer={trailer}
           ratings={ratings}
+          router={router}
           {...details}/>
           <Similar id={tmdbMovie.id}/>
        </div>
