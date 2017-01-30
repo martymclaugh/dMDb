@@ -6,7 +6,7 @@ export default (props) => {
     <div className="score-container">
       <img
       className="rotten-tomatoes-critics-fresh"
-      src={('http://i.imgur.com/cMBThxN.png')} />
+      src={('https://i.imgur.com/cMBThxN.png')} />
       <span className="imdb-score">{score}</span>
     </div>
   )

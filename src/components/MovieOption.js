@@ -8,7 +8,7 @@ export default (props) => {
       key={id}
       className="movie-option-container">
       <div className="movie-option-details"></div>
-      <img className="movie-option-image" src={`http://image.tmdb.org/t/p/w75${props.poster_path}`} alt={`${title}`}/>
+      <img className="movie-option-image" src={`https://image.tmdb.org/t/p/w75${props.poster_path}`} alt={`${title}`}/>
       <h3 className="movie-option-title lead">{title} ({release_date.slice(0,4)})</h3>
     </div>
   )

@@ -17,7 +17,7 @@ export default (props) => {
         <img
           className="movie-scroll-image"
           onLoad={() => {window.dispatchEvent(new Event('resize'));}}
-          src={`http://image.tmdb.org/t/p/w160${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w160${movie.poster_path}`}
           alt={`${title}`}/>
       </div>
     )
