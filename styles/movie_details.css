@@ -40,6 +40,7 @@
 }
 .plot-text {
   color: tan;
+  align-self: flex-start;
 }
 .details-text {
   color: white;
