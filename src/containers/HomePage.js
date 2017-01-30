@@ -10,7 +10,6 @@ import Footer from '../components/Footer';
 
 class HomePage extends Component {
   render(){
-    console.log(this.props)
     return(
       <div className="jumbotron">
         <div className="homepage-container">
