@@ -7,14 +7,17 @@ import {
   FETCH_NOW_PLAYING,
   FETCH_POPULAR,
   FETCH_TOP_RATED,
-  FETCH_UPCOMING
+  FETCH_UPCOMING,
+  FETCH_SIMILAR
 } from '../actions';
 
 const INITIAL_STATE = {
+  selectedMovie: {},
   nowPlaying: [],
   popular: [],
   upcoming: [],
   topRated: [],
+  similar: [],
   movies: [],
   tmdbMovie: {},
   omdbMovie: {},
@@ -22,7 +25,6 @@ const INITIAL_STATE = {
   ratings: []
 };
 export const MovieReducer = (state = INITIAL_STATE, action) => {
-  console.log('ACTION RECEIVED: ', action.type)
   switch(action.type) {
   case FETCH_POPULAR:
     return {...state, popular: action.payload.data.results};
@@ -32,6 +34,8 @@ export const MovieReducer = (state = INITIAL_STATE, action) => {
     return {...state, topRated: action.payload.data.results};
   case FETCH_NOW_PLAYING:
     return {...state, nowPlaying: action.payload.data.results};
+  case FETCH_SIMILAR:
+    return {...state, similar: action.payload.data.results};
   case FETCH_TMDB:
     return {...state, movies: action.payload.data.results};
   case FETCH_TMDB_ID:

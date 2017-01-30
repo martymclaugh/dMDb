@@ -4,3 +4,9 @@
 .recharts-legend-item-text {
   color: white;
 }
+.ratings-container {
+  display: flex;
+  min-width: 600px;
+  flex-direction: column;
+  align-items: center;
+}

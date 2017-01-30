@@ -1,13 +1,9 @@
 import React from 'react';
 import Trailer from './Trailer';
-import Ratings from './Ratings';
-import RottenTomatoesScore from './RottenTomatoesScore';
-import MetaScore from './MetaScore';
-import ImdbScore from './ImdbScore';
-import DmdbScore from './DmdbScore';
+import ImdbDemographics from './ImdbDemographics';
+import RatingsContainer from './RatingsContainer';
 
 export default (props) => {
-  console.log(props.omdbMovie)
   const {
     Actors,
     Awards,
@@ -30,50 +26,49 @@ export default (props) => {
   } = props.omdbMovie
   const {
     budget,
-    revenue,
-    tagline
+    revenue
   } = props.tmdbMovie
   return (
     <div>
-      <div className="search-bar">
-      </div>
     <div className="movie-details-top">
       <div className="movie-details-poster">
         <img src={Poster} alt=""/>
       </div>
       <div className="movie-details-trailer">
-        <h3 className="movie-details-title">{Title} ({Year})</h3>
+        <h3 className="movie-details-title">{Title} ({Year}) <span className="rated">{Rated}</span></h3>
         <Trailer {...props.trailer}/>
-        <div className="dmdb-ratings">
-          <DmdbScore score={{Metascore, tomatoMeter, tomatoUserMeter, imdbRating}}/>
-          <MetaScore score={Metascore}/>
-          <RottenTomatoesScore
-            image={tomatoImage}
-            score={tomatoMeter}
-            type="critics"/>
-          <RottenTomatoesScore
-            score={tomatoUserMeter}
-            type="users"/>
-          <ImdbScore score={imdbRating}/>
-        </div>
+        <RatingsContainer
+          Metascore={Metascore}
+          tomatoMeter={tomatoMeter}
+          tomatoUserMeter={tomatoUserMeter}
+          imdbRating={imdbRating}
+          tomatoImage={tomatoImage}/>
         <div className="imported-ratings"></div>
       </div>
     </div>
-      <Ratings {...props.ratings} />
-      <p>Actors: {Actors}</p>
-      <p>Awards: {Awards}</p>
-      <p>Country: {Country}</p>
-      <p>Director: {Director}</p>
-      <p>Genre: {Genre}</p>
-      <p>Language: {Language}</p>
-      <p>Plot: {Plot}</p>
-      <p>Rated: {Rated}</p>
-      <p>Runtime: {Runtime}</p>
-      <p>Writers: {Writer}</p>
-      <p>Year: {Year}</p>
-      <p>Budget: {budget}</p>
-      <p>Revenue: {revenue}</p>
-      <p>{tagline}</p>
+      <div className="demographics-plot-container">
+        <div className="movie-details-trailer">
+          <p className="plot-text">Genre: {Genre}</p>
+          <p className="plot-text">{Plot}</p>
+        </div>
+        <ImdbDemographics {...props.ratings} />
+      </div>
+      <div className="details-row">
+        <div className="details-col">
+          <p className="details-text">Actors: {Actors}</p>
+          <p className="details-text">Director: {Director}</p>
+          <p className="details-text">Writers: {Writer}</p>
+          <p className="details-text">Awards: {Awards}</p>
+        </div>
+        <div className="details-col border-left-white">
+          <p className="details-text">Country: {Country}</p>
+          <p className="details-text">Language: {Language}</p>
+          <p className="details-text">Runtime: {Runtime}</p>
+          <p className="details-text">Year: {Year}</p>
+          <p className="details-text">Budget: {budget}</p>
+          <p className="details-text">Revenue: {revenue}</p>
+        </div>
+      </div>
     </div>
   )
 }

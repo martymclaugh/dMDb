@@ -1,12 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchTopRated, fetchTmdbId } from '../actions';
+import { fetchSimilar, fetchTmdbId } from '../actions';
 import MovieScrollList from '../components/MovieScrollList.js';
 
-class TopRated extends Component {
-  componentWillMount(){
-    this.props.fetchTopRated()
-  }
+class Similar extends Component {
   static contextTypes = {
     router: PropTypes.object
   };
@@ -24,15 +21,15 @@ class TopRated extends Component {
       <div className="now-playing-container">
         <MovieScrollList
           onSelectPoster={selectedMovie => this.showMoviePreview(selectedMovie)}
-          title="Top Rated"
-          data={this.props.topRated}/>
+          title="Similar Titles"
+          data={this.props.similar}/>
       </div>
     )
   }
 }
 
 function mapStateToProps(state){
-  const { topRated } = state.movies
-  return { topRated }
+  const { similar } = state.movies
+  return { similar }
 }
-export default connect(mapStateToProps, { fetchTopRated, fetchTmdbId })(TopRated);
+export default connect(mapStateToProps, { fetchSimilar, fetchTmdbId })(Similar);

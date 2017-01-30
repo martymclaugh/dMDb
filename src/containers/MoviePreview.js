@@ -4,10 +4,11 @@ import {
   fetchTmdbId,
   fetchOmdbId,
   fetchYoutubeTrailer,
-  fetchImdbRatings
+  fetchImdbRatings,
+  fetchSimilar
 } from '../actions';
 import MovieDetails from '../components/MovieDetails';
-import Ratings from '../components/Ratings';
+import Similar from './Similar';
 
 class MoviePreview extends Component {
   static contextTypes = {
@@ -26,22 +27,32 @@ class MoviePreview extends Component {
 
       // send to action for youtube search trailer
       this.props.fetchYoutubeTrailer({year, title})
+      this.props.fetchSimilar(response.id)
     })
     // grab imdb ratings
     this.props.fetchImdbRatings(imdbId)
   }
+  goToHome(){
+    this.context.router.push('/home')
+  }
   render() {
     const { omdbMovie, tmdbMovie, ratings, trailer} = this.props
+    const { router } = this.context
     const details = { omdbMovie, tmdbMovie }
-    if (!omdbMovie && !tmdbMovie && !ratings && !trailer){
+    if (!omdbMovie && !tmdbMovie.id && !ratings && !trailer){
       return <div>Loading...</div>
     } else {
       return (
         <div className="jumbotron">
+          <div className="search-bar">
+            <img onClick={() => this.goToHome()} className="dmdb-logo" src={('../src/images/dmdb-logo.png')} alt=""/>
+          </div>
           <MovieDetails
           trailer={trailer}
           ratings={ratings}
+          router={router}
           {...details}/>
+          <Similar id={tmdbMovie.id}/>
        </div>
       )
     }
@@ -68,5 +79,6 @@ export default connect(mapStateToProps, {
    fetchOmdbId,
    fetchTmdbId,
    fetchYoutubeTrailer,
-   fetchImdbRatings
+   fetchImdbRatings,
+   fetchSimilar
 })(MoviePreview);

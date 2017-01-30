@@ -10,7 +10,10 @@ export default (props) => {
     if (movie.poster_path)
     return (
       // When homepage loads initially, carousels have no height due to images not loading. Added onload to image to resize window once images have loaded.
-      <div className="scroll-image-container" key={movie.id}>
+      <div
+        onClick={() => {props.onSelectPoster(movie)}}
+        className="scroll-image-container"
+        key={movie.id}>
         <img
           className="movie-scroll-image"
           onLoad={() => {window.dispatchEvent(new Event('resize'));}}
