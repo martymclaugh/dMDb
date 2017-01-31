@@ -65,8 +65,8 @@ export default (props) => {
           <p className="details-text">Language: {Language}</p>
           <p className="details-text">Runtime: {Runtime}</p>
           <p className="details-text">Year: {Year}</p>
-          <p className="details-text">Budget: {budget}</p>
-          <p className="details-text">Revenue: {revenue}</p>
+          <p className="details-text">Budget: {budget === 0 ? 'n/a' : budget}</p>
+          <p className="details-text">Revenue: {revenue === 0 ? 'n/a' : revenue}</p>
         </div>
       </div>
     </div>

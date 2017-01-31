@@ -43,6 +43,16 @@ export default (props) => {
         <span className="score">{score}%</span>
       </div>
     )
+  } else {
+
+    return (
+      <div className="score-container">
+        <img
+          role="presentation"
+          className="rotten-tomatoes-critics-fresh"
+          src={('https://i.imgur.com/8c7MUze.png')} />
+        <span className="score">n/a</span>
+      </div>
+    )
   }
-  return <div></div>
 }

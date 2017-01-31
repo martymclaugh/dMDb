@@ -1,10 +1,12 @@
 import React from 'react';
 
 export default (props) => {
-  if (props.score === undefined){
-    return <div></div>
-  }
   const score = parseInt(props.score, 10);
+  if (isNaN(score)){
+    return (
+      <div></div>
+    )
+  }
   let color;
   if (score  >= 61){
     color = '#66CC33'
