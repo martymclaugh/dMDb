@@ -27,4 +27,4 @@ A React/Redux Web application to show movie demographics from iMDB along with ra
 <img align="center" src="http://i.imgur.com/UDLZN1Y.png" width="600px">
 
 ### Below movie details users can view and link to similar movies.
-<img align="center" src="http://i.imgur.com/OnGiIdp.pngg" width="900px">
+<img align="center" src="http://i.imgur.com/OnGiIdp.png" width="900px">
