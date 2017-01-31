@@ -4,16 +4,12 @@ import _ from 'lodash';
 export default (props) => {
   const { Metascore, imdbRating, tomatoMeter, tomatoUserMeter } = props.score;
   function calculateDmdb(arr){
-    const temp = arr.filter(num => {
-      if(!isNaN(num)){
-        return num
-      }
-    })
-    const scoreArr = temp.map((num) => {return parseInt(num, 10)})
-    if(scoreArr.length === 4){
-      return (_.sum(scoreArr) / (scoreArr.length * 1.5) / 10).toFixed(1)
+    const temp = arr.filter(num => {if(!isNaN(num)) return num})
+                    .map((num) => {return parseInt(num, 10)})
+    if(temp.length === 4){
+      return (_.sum(temp) / (temp.length * 1.5) / 10).toFixed(1)
     } else {
-      return ((_.sum(scoreArr) / scoreArr.length) / 10).toFixed(1)
+      return ((_.sum(temp) / temp.length) / 10).toFixed(1)
     }
   }
   let score;
