@@ -6,6 +6,17 @@ import RatingsContainer from './RatingsContainer';
 function toUsDollars(n){
   return parseInt(n, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
+function renderTitle(props) {
+
+  if (props.Title && props.Year){
+    const { Title, Year, Rated } = props
+    return (
+      <h3 className="movie-details-title">{`${Title} (${Year}) `}<span className="rated">{Rated}</span></h3>
+    )
+  } else {
+    return <div></div>
+  }
+}
 export default (props) => {
   const {
     Actors,
@@ -21,9 +32,7 @@ export default (props) => {
     imdbRating,
     Plot,
     Poster,
-    Rated,
     Runtime,
-    Title,
     Writer,
     Year
   } = props.omdbMovie
@@ -38,7 +47,7 @@ export default (props) => {
         <img src={Poster} alt="dmdb"/>
       </div>
       <div className="movie-details-trailer">
-        <h3 className="movie-details-title">{Title} ({Year}) <span className="rated">{Rated}</span></h3>
+        {renderTitle(props.omdbMovie)}
         <Trailer {...props.trailer}/>
         <RatingsContainer
           Metascore={Metascore}
