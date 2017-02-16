@@ -31,7 +31,6 @@
 .movie-scroll-image:hover {
   cursor: pointer;
   box-shadow: rgba(0,0,0,0.8) 2px 2px 10px;
-  transition-delay: 0.4s;
   transform: scale(2);
 }
 
