@@ -9,7 +9,8 @@ import {
   FETCH_TOP_RATED,
   FETCH_UPCOMING,
   FETCH_SIMILAR,
-  POST_MOVIE_VIEW
+  POST_MOVIE_VIEW,
+  FETCH_RECENTLY_VIEWED
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -48,6 +49,9 @@ export const MovieReducer = (state = INITIAL_STATE, action) => {
     return {...state, trailer: action.payload.data};
   case FETCH_IMDB_RATINGS:
     return {...state, ratings: action.payload.data};
+  case FETCH_RECENTLY_VIEWED:
+    console.log(action.payload)
+    return {...state, recentlyViewed: action.payload}
   default:
     return state;
   }
