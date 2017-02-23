@@ -5,7 +5,7 @@ import NowPlaying from '../containers/NowPlaying';
 import Popular from '../containers/Popular';
 import TopRated from '../containers/TopRated';
 import Upcoming from '../containers/Upcoming';
-import Footer from '../components/Footer';
+import Footer from '../containers/Footer';
 
 
 class HomePage extends Component {
