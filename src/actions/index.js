@@ -11,6 +11,7 @@ export const FETCH_TOP_RATED = 'FETCH_TOP_RATED';
 export const FETCH_UPCOMING = 'FETCH_UPCOMING';
 export const FETCH_SIMILAR = 'FETCH_SIMILAR';
 export const POST_MOVIE_VIEW = 'POST_MOVIE_VIEW';
+export const FETCH_RECENTLY_VIEWED = 'FETCH_RECENTLY_VIEWED';
 
 const YOUTUBE_API_KEY = 'AIzaSyBWyyHS4PatbpxSZAuN3HBfQH1OQLnaj0Y';
 const TMDB_API_KEY = '25a41e10fc0fc533a91edbb4d876705d';
@@ -132,9 +133,17 @@ export function createMovieView(movieData){
   var url = `${DMDB_API_URL}`;
   const request = axios.post(url, {
     movie: movieData
-  })
+  });
   return {
     type: POST_MOVIE_VIEW,
+    payload: request
+  }
+}
+export function fetchRecentlyViewed(){
+  var url = `${DMDB_API_URL}`;
+  const request = axios.get(url);
+  return {
+    type: FETCH_RECENTLY_VIEWED,
     payload: request
   }
 }
