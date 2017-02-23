@@ -10,11 +10,12 @@ export const FETCH_POPULAR = 'FETCH_POPULAR';
 export const FETCH_TOP_RATED = 'FETCH_TOP_RATED';
 export const FETCH_UPCOMING = 'FETCH_UPCOMING';
 export const FETCH_SIMILAR = 'FETCH_SIMILAR';
+export const POST_MOVIE_VIEW = 'POST_MOVIE_VIEW';
 
 const YOUTUBE_API_KEY = 'AIzaSyBWyyHS4PatbpxSZAuN3HBfQH1OQLnaj0Y';
 const TMDB_API_KEY = '25a41e10fc0fc533a91edbb4d876705d';
 const IMDB_SCRAPE_URL = 'https://informationextractor.herokuapp.com/scrape/';
-const OMDB_URL ='https://svr2.omdbapi.com/?i='; // i= for id || + t= for title
+const OMDB_URL ='https://www.omdbapi.com/?i='; // i= for id || + t= for title
 const FULL_PLOT = "&plot=short&r=json";
 const TMDB_URL_SEARCH = 'https://api.themoviedb.org/3/search/multi?api_key=';
 const TMDB_ID_SEARCH = 'https://api.themoviedb.org/3/movie/';
@@ -26,7 +27,7 @@ const POPULAR_URL = 'https://api.themoviedb.org/3/movie/popular?api_key=';
 const TOP_RATED_URL ='https://api.themoviedb.org/3/movie/top_rated?api_key=';
 const UPCOMING_URL ='https://api.themoviedb.org/3/movie/upcoming?api_key=';
 const SIMILAR_URL = 'https://api.themoviedb.org/3/movie/';
-
+const DMDB_API_URL = 'http://localhost:3001/movies';
 // https://api.themoviedb.org/3/movie/109428?api_key=25a41e10fc0fc533a91edbb4d876705d&language=en-US id search
 
 // https://api.themoviedb.org/3/search/multi?api_key=25a41e10fc0fc533a91edbb4d876705d&language=en-US&query=evil%20dead&page=1&include_adult=false // for search
@@ -124,6 +125,16 @@ export function fetchImdbRatings(imdbId) {
   const request = axios.get(url);
   return {
     type: FETCH_IMDB_RATINGS,
+    payload: request
+  }
+}
+export function createMovieView(movieData){
+  var url = `${DMDB_API_URL}`;
+  const request = axios.post(url, {
+    movie: movieData
+  })
+  return {
+    type: POST_MOVIE_VIEW,
     payload: request
   }
 }
