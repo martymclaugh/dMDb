@@ -8,12 +8,14 @@ import {
   FETCH_POPULAR,
   FETCH_TOP_RATED,
   FETCH_UPCOMING,
-  FETCH_SIMILAR
+  FETCH_SIMILAR,
+  POST_MOVIE_VIEW
 } from '../actions';
 
 const INITIAL_STATE = {
   selectedMovie: {},
   nowPlaying: [],
+  recentlyViewed: [],
   popular: [],
   upcoming: [],
   topRated: [],

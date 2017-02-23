@@ -5,11 +5,12 @@ import {
   fetchOmdbId,
   fetchYoutubeTrailer,
   fetchImdbRatings,
-  fetchSimilar
+  fetchSimilar,
+  createMovieView
 } from '../actions';
 import MovieDetails from '../components/MovieDetails';
 import Similar from './Similar';
-import Footer from '../components/Footer';
+import Footer from '../containers/Footer';
 import Loading from 'react-loading';
 
 class MoviePreview extends Component {
@@ -19,17 +20,20 @@ class MoviePreview extends Component {
   componentWillMount() {
     const imdbId = this.props.params.id
     // grab OMDB data
-    this.props.fetchOmdbId(imdbId)
+    this.props.fetchOmdbId(imdbId).then(data => {
+      this.props.createMovieView(data.payload.data);
+    })
     // grab TMDB data
     this.props.fetchTmdbId(imdbId).then(data => {
       const response = data.payload.data
       // grab title and year for youtube trailer search
       const title = response.title
       const year = response.release_date.slice(0, 4)
-
       // send to action for youtube search trailer
       this.props.fetchYoutubeTrailer({year, title})
+      // send to action for similar titles
       this.props.fetchSimilar(response.id)
+      // send to action to create viewed object
     })
     // grab imdb ratings
     this.props.fetchImdbRatings(imdbId)
@@ -83,5 +87,6 @@ export default connect(mapStateToProps, {
    fetchTmdbId,
    fetchYoutubeTrailer,
    fetchImdbRatings,
-   fetchSimilar
+   fetchSimilar,
+   createMovieView
 })(MoviePreview);
