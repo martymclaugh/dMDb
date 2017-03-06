@@ -10,6 +10,7 @@ class Footer extends Component {
     return <div className="footer"></div>
   }
 }
+// render recently viewed slider in footer
 function mapStateToProps({ recentlyViewed }){
   return { recentlyViewed }
 }
