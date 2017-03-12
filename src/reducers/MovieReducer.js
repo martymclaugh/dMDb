@@ -12,17 +12,16 @@ const INITIAL_STATE = {
   tmdbMovie: {},
   omdbMovie: {},
   trailer: {},
-  ratings: []
+  ratings: [],
 };
 export const MovieReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
   case types.FETCH_POPULAR_SUCCESS:
-    console.log(action.payload.results)
     return {...state, popular: action.payload.results};
   case types.FETCH_UPCOMING:
     return {...state, upcoming: action.payload.data.results};
-  case types.FETCH_TOP_RATED:
-    return {...state, topRated: action.payload.data.results};
+  case types.FETCH_TOP_RATED_SUCCESS:
+    return {...state, topRated: action.payload.results};
   case types.FETCH_NOW_PLAYING_SUCCESS:
     return {...state, nowPlaying: action.payload.results};
   case types.FETCH_SIMILAR:
@@ -41,6 +40,7 @@ export const MovieReducer = (state = INITIAL_STATE, action) => {
     console.log(action.payload)
     return {...state, recentlyViewed: action.payload}
   default:
+    if (action.error) console.log(action.error);
     return state;
   }
 }

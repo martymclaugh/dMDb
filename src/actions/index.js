@@ -23,25 +23,25 @@ export const fetchNowPlaying = nowPlaying =>
   ({ type: types.FETCH_NOW_PLAYING, payload: null });
 export const fetchNowPlayingSuccess = nowPlaying =>
   ({ type: types.FETCH_NOW_PLAYING_SUCCESS, payload: { ...nowPlaying } });
-export const fetchNowPlayingFailed = nowPlaying =>
-  ({ type: types.FETCH_NOW_PLAYING_FAILED, error: { message: `Failed to fetch now playing` } });
+export const fetchNowPlayingFailed = e =>
+  ({ type: types.FETCH_NOW_PLAYING_FAILED, error: `Failed to fetch now playing, ${e}` });
 
 // fetch popular
 export const fetchPopular = popular =>
   ({ type: types.FETCH_POPULAR })
 export const fetchPopularSuccess = popular =>
   ({ type: types.FETCH_POPULAR_SUCCESS, payload: {...popular} })
-export const fetchPopularFailed = popular =>
-  ({ type: types.FETCH_POPULAR_FAILED, error: { message: `Failed to fetch popular` } })
+export const fetchPopularFailed = e =>
+  ({ type: types.FETCH_POPULAR_FAILED, error: `Failed to fetch popular, ${e}` })
 
-export function fetchTopRated(){
-  const url = `${TOP_RATED_URL}${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1`
-  const request = axios(url)
-  return {
-    type: types.FETCH_TOP_RATED,
-    payload: request
-  }
-}
+// fetch top rated
+export const fetchTopRated = topRated =>
+  ({ type: types.FETCH_TOP_RATED })
+export const fetchTopRatedSuccess = topRated =>
+  ({ type: types.FETCH_TOP_RATED_SUCCESS, payload: {...topRated} })
+export const fetchTopRatedFailed = e =>
+  ({ type: types.FETCH_TOP_RATED_FAILED, error: `Failed to fetch top rated, ${e}` })
+
 export function fetchUpcoming(){
   const url = `${UPCOMING_URL}${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1&region=US`
   const request = axios(url)
