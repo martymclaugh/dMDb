@@ -4,10 +4,10 @@ import * as types from '../actions/actionTypes';
 import * as Actions from '../actions';
 import * as constants from '../api-helpers/constants';
 
-export function* fetchPopular() {
+function* fetchPopular() {
   try {
     const url = `${constants.POPULAR_URL}${constants.TMDB_API_KEY}${constants.TMDB_LANGUAGE}&page=1`;
-    const fetchMovies = () => axios.get(url);
+    const fetchMovies = () => axios(url);
     const moviesData = yield call(fetchMovies);
     const movieCollection = moviesData.data
     yield put(Actions.fetchPopularSuccess(movieCollection))
