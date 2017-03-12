@@ -10,9 +10,9 @@ export function* fetchNowPlaying() {
     const fetchMovies = () => axios.get(url);
     const moviesData = yield call(fetchMovies);
     const movieCollection = moviesData.data;
-    yield put(Actions.fetchNowPlayingSuccess(movieCollection))
+    yield put(Actions.fetchNowPlayingSuccess(movieCollection));
   } catch(e) {
-    console.log('error', e)
+    yield put(Actions.fetchNowPlayingFailed(e));
   }
 }
 function* watcher() {
