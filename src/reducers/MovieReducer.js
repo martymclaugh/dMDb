@@ -16,14 +16,15 @@ const INITIAL_STATE = {
 };
 export const MovieReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
-  case types.FETCH_POPULAR:
-    return {...state, popular: action.payload.data.results};
+  case types.FETCH_POPULAR_SUCCESS:
+    console.log(action.payload.results)
+    return {...state, popular: action.payload.results};
   case types.FETCH_UPCOMING:
     return {...state, upcoming: action.payload.data.results};
   case types.FETCH_TOP_RATED:
     return {...state, topRated: action.payload.data.results};
-  case types.FETCH_NOW_PLAYING:
-    return {...state, nowPlaying: action.payload.data.results};
+  case types.FETCH_NOW_PLAYING_SUCCESS:
+    return {...state, nowPlaying: action.payload.results};
   case types.FETCH_SIMILAR:
     return {...state, similar: action.payload.data.results};
   case types.FETCH_TMDB:
