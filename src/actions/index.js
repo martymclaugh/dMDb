@@ -50,21 +50,14 @@ export const fetchUpcomingSuccess = upcoming =>
 export const fetchUpcomingFailed = e =>
   ({ type: types.FETCH_UPCOMING_FAILED, error: `Failed to fetch upcoming, ${e}` });
 
-export function fetchSimilar(id){
-  if (id === undefined){
-    return {
-      type: types.null,
-      payload: null
-    }
-  } else {
-    const url = `${SIMILAR_URL}${id}/similar?api_key=${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1`
-    const request = axios(url)
-    return {
-      type: types.FETCH_SIMILAR,
-      payload: request
-    }
-  }
-}
+// fetch similar
+export const fetchSimilar = id =>
+  ({ type: types.FETCH_SIMILAR, payload: id });
+export const fetchSimilarSuccess = similar =>
+  ({ type: types.FETCH_SIMILAR_SUCCESS, payload: {...similar} });
+export const fetchSimilarFailed = e =>
+  ({ type: types.FETCH_SIMILAR_FAILED, error: `Failed to fetch similar, ${e}` });
+
 export function fetchTmdbSearch(props) {
   const searchTerm = props;
   if(searchTerm.length === 0){
