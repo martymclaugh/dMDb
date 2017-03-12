@@ -12,7 +12,7 @@ export function* fetchPopular() {
     const movieCollection = moviesData.data
     yield put(Actions.fetchPopularSuccess(movieCollection))
   } catch(e) {
-    console.log('error', e)
+    yield put(Actions.fetchPopularFailed(e))
   }
 }
 
