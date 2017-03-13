@@ -66,6 +66,14 @@ export const fetchTmdbSearchSuccess = movie =>
 export const fetchTmdbSearchFailed = e =>
   ({ type: types.FETCH_TMDB_FAILED, error: `Failed to fetch movie from tmdb, ${e}` });
 
+// // fetch tmdb with id
+// export const fetchTmdbId = id =>
+//   ({ type: types.FETCH_TMDB_ID, payload: id });
+// export const fetchTmdbIdSuccess = movie =>
+//   ({ type: types.FETCH_TMDB_ID, payload: movie });
+// export const fetchTmdbIdFailed = e =>
+//   ({ type: types.FETCH_TMDB_ID, error: `Failed to fetch tmdb with id provided, ${e}` });
+
 export function fetchTmdbId(id){
   const url = `${TMDB_ID_SEARCH}${id}?api_key=${TMDB_API_KEY}${TMDB_LANGUAGE}`;
   const request = axios(url);
