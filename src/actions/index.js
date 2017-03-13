@@ -58,21 +58,14 @@ export const fetchSimilarSuccess = similar =>
 export const fetchSimilarFailed = e =>
   ({ type: types.FETCH_SIMILAR_FAILED, error: `Failed to fetch similar, ${e}` });
 
-export function fetchTmdbSearch(props) {
-  const searchTerm = props;
-  if(searchTerm.length === 0){
-    return {
-      type: types.null,
-      payload: null
-    }
-  }
-  const url = `${TMDB_URL_SEARCH}${TMDB_API_KEY}${TMDB_LANGUAGE}&query=${searchTerm}${TMDB_SEARCH_PARAMS}`
-  const request = axios(url);
-  return {
-    type: types.FETCH_TMDB,
-    payload: request
-  };
-}
+// fetch tmdb search
+export const fetchTmdbSearch = props =>
+  ({ type: types.FETCH_TMDB, payload: props });
+export const fetchTmdbSearchSuccess = movie =>
+  ({ type: types.FETCH_TMDB_SUCCESS, payload: movie });
+export const fetchTmdbSearchFailed = e =>
+  ({ type: types.FETCH_TMDB_FAILED, error: `Failed to fetch movie from tmdb, ${e}` });
+
 export function fetchTmdbId(id){
   const url = `${TMDB_ID_SEARCH}${id}?api_key=${TMDB_API_KEY}${TMDB_LANGUAGE}`;
   const request = axios(url);
