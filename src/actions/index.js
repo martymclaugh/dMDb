@@ -28,58 +28,52 @@ export const fetchNowPlayingFailed = e =>
 
 // fetch popular
 export const fetchPopular = popular =>
-  ({ type: types.FETCH_POPULAR })
+  ({ type: types.FETCH_POPULAR });
 export const fetchPopularSuccess = popular =>
-  ({ type: types.FETCH_POPULAR_SUCCESS, payload: {...popular} })
+  ({ type: types.FETCH_POPULAR_SUCCESS, payload: {...popular} });
 export const fetchPopularFailed = e =>
-  ({ type: types.FETCH_POPULAR_FAILED, error: `Failed to fetch popular, ${e}` })
+  ({ type: types.FETCH_POPULAR_FAILED, error: `Failed to fetch popular, ${e}` });
 
 // fetch top rated
 export const fetchTopRated = topRated =>
-  ({ type: types.FETCH_TOP_RATED })
+  ({ type: types.FETCH_TOP_RATED });
 export const fetchTopRatedSuccess = topRated =>
-  ({ type: types.FETCH_TOP_RATED_SUCCESS, payload: {...topRated} })
+  ({ type: types.FETCH_TOP_RATED_SUCCESS, payload: {...topRated} });
 export const fetchTopRatedFailed = e =>
-  ({ type: types.FETCH_TOP_RATED_FAILED, error: `Failed to fetch top rated, ${e}` })
+  ({ type: types.FETCH_TOP_RATED_FAILED, error: `Failed to fetch top rated, ${e}` });
 
-export function fetchUpcoming(){
-  const url = `${UPCOMING_URL}${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1&region=US`
-  const request = axios(url)
-  return {
-    type: types.FETCH_UPCOMING,
-    payload: request
-  }
-}
-export function fetchSimilar(id){
-  if (id === undefined){
-    return {
-      type: types.null,
-      payload: null
-    }
-  } else {
-    const url = `${SIMILAR_URL}${id}/similar?api_key=${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1`
-    const request = axios(url)
-    return {
-      type: types.FETCH_SIMILAR,
-      payload: request
-    }
-  }
-}
-export function fetchTmdbSearch(props) {
-  const searchTerm = props;
-  if(searchTerm.length === 0){
-    return {
-      type: types.null,
-      payload: null
-    }
-  }
-  const url = `${TMDB_URL_SEARCH}${TMDB_API_KEY}${TMDB_LANGUAGE}&query=${searchTerm}${TMDB_SEARCH_PARAMS}`
-  const request = axios(url);
-  return {
-    type: types.FETCH_TMDB,
-    payload: request
-  };
-}
+// fetch upcoming
+export const fetchUpcoming = upcoming =>
+  ({ type: types.FETCH_UPCOMING });
+export const fetchUpcomingSuccess = upcoming =>
+  ({ type: types.FETCH_UPCOMING_SUCCESS, payload: {...upcoming} });
+export const fetchUpcomingFailed = e =>
+  ({ type: types.FETCH_UPCOMING_FAILED, error: `Failed to fetch upcoming, ${e}` });
+
+// fetch similar
+export const fetchSimilar = id =>
+  ({ type: types.FETCH_SIMILAR, payload: id });
+export const fetchSimilarSuccess = similar =>
+  ({ type: types.FETCH_SIMILAR_SUCCESS, payload: {...similar} });
+export const fetchSimilarFailed = e =>
+  ({ type: types.FETCH_SIMILAR_FAILED, error: `Failed to fetch similar, ${e}` });
+
+// fetch tmdb search
+export const fetchTmdbSearch = props =>
+  ({ type: types.FETCH_TMDB, payload: props });
+export const fetchTmdbSearchSuccess = movie =>
+  ({ type: types.FETCH_TMDB_SUCCESS, payload: movie });
+export const fetchTmdbSearchFailed = e =>
+  ({ type: types.FETCH_TMDB_FAILED, error: `Failed to fetch movie from tmdb, ${e}` });
+
+// // fetch tmdb with id
+// export const fetchTmdbId = id =>
+//   ({ type: types.FETCH_TMDB_ID, payload: id });
+// export const fetchTmdbIdSuccess = movie =>
+//   ({ type: types.FETCH_TMDB_ID, payload: movie });
+// export const fetchTmdbIdFailed = e =>
+//   ({ type: types.FETCH_TMDB_ID, error: `Failed to fetch tmdb with id provided, ${e}` });
+
 export function fetchTmdbId(id){
   const url = `${TMDB_ID_SEARCH}${id}?api_key=${TMDB_API_KEY}${TMDB_LANGUAGE}`;
   const request = axios(url);

@@ -4,10 +4,10 @@ import * as types from '../actions/actionTypes';
 import * as Actions from '../actions';
 import * as constants from '../api-helpers/constants';
 
-export function* fetchNowPlaying() {
+function* fetchNowPlaying() {
   try {
     const url = `${constants.NOW_PLAYING_URL}${constants.TMDB_API_KEY}${constants.TMDB_LANGUAGE}&page=1&region=US`;
-    const fetchMovies = () => axios.get(url);
+    const fetchMovies = () => axios(url);
     const moviesData = yield call(fetchMovies);
     const movieCollection = moviesData.data;
     yield put(Actions.fetchNowPlayingSuccess(movieCollection));
