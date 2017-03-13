@@ -15,7 +15,7 @@ function* fetchSimilar({ payload }){
       const moviesData = yield call(fetchMovies);
       const movieCollection = moviesData.data;
       yield put(Actions.fetchSimilarSuccess(movieCollection));
-    } catch(e) {
+    } catch (e) {
       yield put(Actions.fetchSimilarFailed(e));
     }
   }
