@@ -5,6 +5,7 @@ import topRatedSaga from './TopRatedSaga';
 import upcomingSaga from './UpcomingSaga';
 import similarSaga from './SimilarSaga';
 import tmdbSearchSaga from './TmdbSearchSaga';
+import tmdbIdSearchSaga from './TmdbIdSearchSaga';
 
 export function* rootSaga(){
   yield [
