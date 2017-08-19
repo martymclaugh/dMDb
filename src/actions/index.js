@@ -3,6 +3,7 @@ import * as types from './actionTypes';
 
 const YOUTUBE_API_KEY = 'AIzaSyBWyyHS4PatbpxSZAuN3HBfQH1OQLnaj0Y';
 const TMDB_API_KEY = '25a41e10fc0fc533a91edbb4d876705d';
+const OMDB_API_KEY = '33bf1722'
 const IMDB_SCRAPE_URL = 'https://informationextractor.herokuapp.com/scrape/';
 const OMDB_URL ='https://www.omdbapi.com/?i='; // i= for id || + t= for title
 const FULL_PLOT = "&plot=short&r=json";
@@ -89,7 +90,7 @@ export function fetchTmdbId(id){
   }
 }
 export function fetchOmdbId(id){
-  const url = `${OMDB_URL}${id}${FULL_PLOT}&tomatoes=true`;
+  const url = `${OMDB_URL}${id}${FULL_PLOT}&tomatoes=true&apikey=${OMDB_API_KEY}`;
   const request = axios(url);
   return {
     type: types.FETCH_OMDB_ID,
