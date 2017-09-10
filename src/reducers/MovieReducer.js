@@ -12,22 +12,22 @@ const INITIAL_STATE = {
   tmdbMovie: {},
   omdbMovie: {},
   trailer: {},
-  ratings: []
+  ratings: [],
 };
 export const MovieReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
-  case types.FETCH_POPULAR:
-    return {...state, popular: action.payload.data.results};
-  case types.FETCH_UPCOMING:
-    return {...state, upcoming: action.payload.data.results};
-  case types.FETCH_TOP_RATED:
-    return {...state, topRated: action.payload.data.results};
-  case types.FETCH_NOW_PLAYING:
-    return {...state, nowPlaying: action.payload.data.results};
-  case types.FETCH_SIMILAR:
-    return {...state, similar: action.payload.data.results};
-  case types.FETCH_TMDB:
-    return {...state, movies: action.payload.data.results};
+  case types.FETCH_POPULAR_SUCCESS:
+    return {...state, popular: action.payload.results};
+  case types.FETCH_UPCOMING_SUCCESS:
+    return {...state, upcoming: action.payload.results};
+  case types.FETCH_TOP_RATED_SUCCESS:
+    return {...state, topRated: action.payload.results};
+  case types.FETCH_NOW_PLAYING_SUCCESS:
+    return {...state, nowPlaying: action.payload.results};
+  case types.FETCH_SIMILAR_SUCCESS:
+    return {...state, similar: action.payload.results};
+  case types.FETCH_TMDB_SUCCESS:
+    return {...state, movies: action.payload.results};
   case types.FETCH_TMDB_ID:
     return {...state, tmdbMovie: action.payload.data};
   case types.FETCH_OMDB_ID:
@@ -40,6 +40,7 @@ export const MovieReducer = (state = INITIAL_STATE, action) => {
     console.log(action.payload)
     return {...state, recentlyViewed: action.payload}
   default:
+    if (action.error) console.log(action.error);
     return state;
   }
 }

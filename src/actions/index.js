@@ -19,68 +19,62 @@ const UPCOMING_URL ='https://api.themoviedb.org/3/movie/upcoming?api_key=';
 const SIMILAR_URL = 'https://api.themoviedb.org/3/movie/';
 const DMDB_API_URL = 'http://localhost:3001/movies';
 
-export function fetchNowPlaying(){
-  const url = `${NOW_PLAYING_URL}${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1&region=US`
-  const request = axios(url)
-  return {
-    type: types.FETCH_NOW_PLAYING,
-    payload: request
-  }
-}
-export function fetchPopular(){
-  const url = `${POPULAR_URL}${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1`
-  const request = axios(url)
-  return {
-    type: types.FETCH_POPULAR,
-    payload: request
-  }
-}
-export function fetchTopRated(){
-  const url = `${TOP_RATED_URL}${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1`
-  const request = axios(url)
-  return {
-    type: types.FETCH_TOP_RATED,
-    payload: request
-  }
-}
-export function fetchUpcoming(){
-  const url = `${UPCOMING_URL}${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1&region=US`
-  const request = axios(url)
-  return {
-    type: types.FETCH_UPCOMING,
-    payload: request
-  }
-}
-export function fetchSimilar(id){
-  if (id === undefined){
-    return {
-      type: types.null,
-      payload: null
-    }
-  } else {
-    const url = `${SIMILAR_URL}${id}/similar?api_key=${TMDB_API_KEY}${TMDB_LANGUAGE}&page=1`
-    const request = axios(url)
-    return {
-      type: types.FETCH_SIMILAR,
-      payload: request
-    }
-  }
-}
-export function fetchTmdbSearch(props) {
-  const searchTerm = props;
-  if(searchTerm.length === 0){
-    return {
-      type: types.null,
-      payload: null
-    }
-  }
-  const url = `${TMDB_URL_SEARCH}${TMDB_API_KEY}${TMDB_LANGUAGE}&query=${searchTerm}${TMDB_SEARCH_PARAMS}`
-  const request = axios(url);
-  return {
-    type: types.FETCH_TMDB,
-    payload: request
-  };
-}
+// fetch now playing
+export const fetchNowPlaying = nowPlaying =>
+  ({ type: types.FETCH_NOW_PLAYING, payload: null });
+export const fetchNowPlayingSuccess = nowPlaying =>
+  ({ type: types.FETCH_NOW_PLAYING_SUCCESS, payload: { ...nowPlaying } });
+export const fetchNowPlayingFailed = e =>
+  ({ type: types.FETCH_NOW_PLAYING_FAILED, error: `Failed to fetch now playing, ${e}` });
+
+// fetch popular
+export const fetchPopular = popular =>
+  ({ type: types.FETCH_POPULAR });
+export const fetchPopularSuccess = popular =>
+  ({ type: types.FETCH_POPULAR_SUCCESS, payload: {...popular} });
+export const fetchPopularFailed = e =>
+  ({ type: types.FETCH_POPULAR_FAILED, error: `Failed to fetch popular, ${e}` });
+
+// fetch top rated
+export const fetchTopRated = topRated =>
+  ({ type: types.FETCH_TOP_RATED });
+export const fetchTopRatedSuccess = topRated =>
+  ({ type: types.FETCH_TOP_RATED_SUCCESS, payload: {...topRated} });
+export const fetchTopRatedFailed = e =>
+  ({ type: types.FETCH_TOP_RATED_FAILED, error: `Failed to fetch top rated, ${e}` });
+
+// fetch upcoming
+export const fetchUpcoming = upcoming =>
+  ({ type: types.FETCH_UPCOMING });
+export const fetchUpcomingSuccess = upcoming =>
+  ({ type: types.FETCH_UPCOMING_SUCCESS, payload: {...upcoming} });
+export const fetchUpcomingFailed = e =>
+  ({ type: types.FETCH_UPCOMING_FAILED, error: `Failed to fetch upcoming, ${e}` });
+
+// fetch similar
+export const fetchSimilar = id =>
+  ({ type: types.FETCH_SIMILAR, payload: id });
+export const fetchSimilarSuccess = similar =>
+  ({ type: types.FETCH_SIMILAR_SUCCESS, payload: {...similar} });
+export const fetchSimilarFailed = e =>
+  ({ type: types.FETCH_SIMILAR_FAILED, error: `Failed to fetch similar, ${e}` });
+
+// fetch tmdb search
+export const fetchTmdbSearch = props =>
+  ({ type: types.FETCH_TMDB, payload: props });
+export const fetchTmdbSearchSuccess = movie =>
+  ({ type: types.FETCH_TMDB_SUCCESS, payload: movie });
+export const fetchTmdbSearchFailed = e =>
+  ({ type: types.FETCH_TMDB_FAILED, error: `Failed to fetch movie from tmdb, ${e}` });
+
+// // fetch tmdb with id
+// export const fetchTmdbId = id =>
+//   ({ type: types.FETCH_TMDB_ID, payload: id });
+// export const fetchTmdbIdSuccess = movie =>
+//   ({ type: types.FETCH_TMDB_ID, payload: movie });
+// export const fetchTmdbIdFailed = e =>
+//   ({ type: types.FETCH_TMDB_ID, error: `Failed to fetch tmdb with id provided, ${e}` });
+
 export function fetchTmdbId(id){
   const url = `${TMDB_ID_SEARCH}${id}?api_key=${TMDB_API_KEY}${TMDB_LANGUAGE}`;
   const request = axios(url);
